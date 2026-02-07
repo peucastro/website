@@ -6,5 +6,6 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
+  site: "https://peucastro.me",
   integrations: [svelte(), mdx(), sitemap()],
 });
