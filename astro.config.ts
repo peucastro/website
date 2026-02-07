@@ -7,10 +7,10 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-	site: "https://peucastro.me",
-	integrations: [svelte(), mdx(), sitemap()],
+  site: "https://peucastro.me",
+  integrations: [svelte(), mdx(), sitemap()],
 
-	vite: {
-		plugins: [tailwindcss()],
-	},
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

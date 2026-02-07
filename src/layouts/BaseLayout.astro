@@ -1,15 +1,12 @@
 ---
-import "../styles/global.css";
+import "@styles/global.css";
 
 interface Props {
-	title?: string;
-	description?: string;
+  title?: string;
+  description?: string;
 }
 
-const {
-	title = "Pedro Castro | Portfolio",
-	description = "Software Developer.",
-} = Astro.props;
+const { title = "Pedro Castro | Portfolio", description = "Software Developer." } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
