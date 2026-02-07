@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://peucastro.me/sitemap-index.xml
