@@ -17,8 +17,6 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: '9'
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -31,7 +29,7 @@ jobs:
 
       - name: Run Biome
         uses: biomejs/setup-biome@v2
-      - run: biome ci .
+      - run: pnpm run ci
 
       - name: Build Astro
         run: pnpm run build
