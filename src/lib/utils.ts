@@ -1,0 +1,16 @@
+import type { CollectionEntry } from "astro:content";
+
+export type Project = CollectionEntry<"projects">;
+
+export const projectStatusMap = {
+  active: "text-success border-success/30 bg-success/10",
+  completed: "text-info border-info/80 bg-info/10",
+  archived: "text-muted border-border bg-bg-deep",
+} as const;
+
+export function formatDate(date: Date) {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+  });
+}
