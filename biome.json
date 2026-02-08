@@ -7,7 +7,14 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["src/**", "astro.config.js", "svelte.config.ts", "package.json", "tsconfig.json"]
+    "includes": [
+      "src/**",
+      "astro.config.ts",
+      "svelte.config.ts",
+      "package.json",
+      "tsconfig.json",
+      "wrangler.jsonc"
+    ]
   },
   "formatter": {
     "enabled": true,

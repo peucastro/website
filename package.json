@@ -19,6 +19,7 @@
     "ci": "pnpm run type-check && biome ci ."
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/svelte": "^7.2.5",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@astrojs/check": "0.9.6",
     "@biomejs/biome": "2.3.14",
-    "svelte-check": "^4.3.6"
+    "svelte-check": "^4.3.6",
+    "wrangler": "^4.63.0"
   }
 }
