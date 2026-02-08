@@ -7,8 +7,8 @@
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   /* Backgrounds */
-  --color-bg-deep: #1d2021;
   --color-bg: #282828;
+  --color-bg-deep: #1d2021;
   --color-bg-soft: #32302f;
 
   /* Surfaces */
@@ -17,18 +17,68 @@
   --color-border: #504945;
 
   /* Text */
-  --color-fg-strong: #fbf1c7;
   --color-fg: #ebdbb2;
+  --color-fg-strong: #fbf1c7;
   --color-fg-muted: #a89984;
   --color-muted: #928374;
 
   /* Accents */
-  --color-primary: #fabd2f;
-  --color-secondary: #8ec07c;
-  --color-accent: #fe8019;
+  --color-primary: #fe8019;
+  --color-secondary: #fabd2f;
+  --color-accent: #fabd2f;
 
   /* States */
   --color-success: #b8bb26;
   --color-warning: #fabd2f;
   --color-danger: #fb4934;
+  --color-info: #83a598;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-border);
+  }
+
+  html {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-bg-deep);
+  }
+
+  strong,
+  b {
+    color: var(--color-fg-strong);
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .prose {
+    --tw-prose-body: var(--color-fg);
+    --tw-prose-headings: var(--color-fg-strong);
+    --tw-prose-links: var(--color-primary);
+    --tw-prose-bold: var(--color-fg-strong);
+    --tw-prose-counters: var(--color-muted);
+    --tw-prose-bullets: var(--color-surface-soft);
+    --tw-prose-quotes: var(--color-fg-muted);
+    --tw-prose-quote-borders: var(--color-primary);
+    --tw-prose-captions: var(--color-muted);
+    --tw-prose-code: var(--color-secondary);
+    --tw-prose-pre-code: var(--color-fg);
+    --tw-prose-pre-bg: var(--color-bg-deep);
+    --tw-prose-th-borders: var(--color-border);
+    --tw-prose-td-borders: var(--color-border);
+  }
 }
