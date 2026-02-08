@@ -1,43 +1,38 @@
-# Astro Starter Kit: Minimal
+# website
+
+![ci](https://img.shields.io/github/actions/workflow/status/peucastro/website/ci.yaml?label=ci)
+![license](https://img.shields.io/github/license/peucastro/website?color=blue)
+
+My personal website, built using [Astro](https://astro.build/) and [Svelte](https://svelte.dev/).
+
+## Running locally
+
+First install the dependencies with `pnpm`:
 
 ```sh
-pnpm create astro@latest -- --template minimal
+pnpm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Once it's done, start up a local server with:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+pnpm run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Building for production
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+To create a production version of the site:
 
-Any static assets, like images, can be placed in the `public/` directory.
+```sh
+npm run build
+```
 
-## 🧞 Commands
+You can preview the production build with:
 
-All commands are run from the root of the project, from a terminal:
+```sh
+npm run preview
+```
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## License
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project is licensed under the terms of the MIT license. Check [LICENSE](LICENSE) for details.
