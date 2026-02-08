@@ -1,5 +1,6 @@
 <script lang="ts">
   import IconLink from "@components/IconLink.svelte";
+  import TagBadge from "@components/TagBadge.svelte";
   import { formatDate, type Project, projectStatusMap } from "$lib/utils";
   import IconExternal from "~icons/lucide/external-link";
   import IconGithub from "~icons/simple-icons/github";
@@ -39,7 +40,7 @@
   <footer class="flex flex-col gap-3">
     <div class="flex flex-wrap gap-2">
       {#each project.data.tags as tag}
-        <span class="text-xs text-muted border border-border/50 px-1.5 rounded">#{tag}</span>
+        <TagBadge {tag} />
       {/each}
 
       {#each project.data.technologies as tech}
