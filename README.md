@@ -24,13 +24,13 @@ pnpm run dev
 To create a production version of the site:
 
 ```sh
-npm run build
+pnpm run build
 ```
 
 You can preview the production build with:
 
 ```sh
-npm run preview
+pnpm run preview
 ```
 
 ## License
