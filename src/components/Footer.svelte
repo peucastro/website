@@ -1,16 +1,30 @@
 <script lang="ts">
   const currentYear = new Date().getFullYear();
+
+  const socials = [
+    { name: "github", href: "https://github.com/peucastro" },
+    { name: "linkedin", href: "https://linkedin.com/in/peucastro" },
+  ];
 </script>
 
-<footer class="mt-20 border-t border-border py-8 bg-bg-deep">
-  <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 font-mono">
-    <p class="text-muted text-xs">
-      &copy; {currentYear} Pedro Castro.
+<footer class="mt-32 border-t border-border bg-bg-deep py-12 font-mono text-xs">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-fg-muted">
+      &copy; {currentYear} // Pedro Castro
     </p>
-
-    <div class="flex gap-4 text-muted">
-      <a href="https://github.com" class="hover:text-primary transition-colors" aria-label="GitHub">github</a>
-      <a href="https://linkedin.com" class="hover:text-secondary transition-colors" aria-label="LinkedIn">linkedin</a>
-    </div>
+    <nav class="flex gap-6" aria-label="Social links">
+      {#each socials as { name, href }}
+        <a
+          {href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted hover:text-primary transition-colors"
+          aria-label={name}
+        >
+          <span aria-hidden="true">{name}</span>
+          <span class="sr-only">{name}</span>
+        </a>
+      {/each}
+    </nav>
   </div>
 </footer>
