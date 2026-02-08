@@ -33,7 +33,8 @@
         "useFragmentSyntax": "warn"
       },
       "suspicious": {
-        "noImplicitAnyLet": "off"
+        "noImplicitAnyLet": "off",
+        "noExplicitAny": "warn"
       }
     }
   },
@@ -42,12 +43,18 @@
       "quoteStyle": "double"
     }
   },
+  "html": {
+    "formatter": {
+      "indentScriptAndStyle": true
+    }
+  },
   "css": {
     "parser": {
       "tailwindDirectives": true
     },
     "formatter": {
-      "enabled": true
+      "enabled": true,
+      "lineWidth": 120
     }
   },
   "assist": {
