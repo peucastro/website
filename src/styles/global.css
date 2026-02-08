@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "@fontsource/ibm-plex-mono";
+@import "@fontsource-variable/ibm-plex-sans";
+
 @plugin "@tailwindcss/typography";
 
 @theme {
