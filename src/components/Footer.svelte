@@ -9,8 +9,8 @@
     </p>
 
     <div class="flex gap-4 text-muted">
-      <a href="https://github.com" class="hover:text-primary transition-colors">github</a>
-      <a href="https://linkedin.com" class="hover:text-secondary transition-colors">linkedin</a>
+      <a href="https://github.com" class="hover:text-primary transition-colors" aria-label="GitHub">github</a>
+      <a href="https://linkedin.com" class="hover:text-secondary transition-colors" aria-label="LinkedIn">linkedin</a>
     </div>
   </div>
 </footer>
