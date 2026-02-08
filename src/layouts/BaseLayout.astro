@@ -12,6 +12,7 @@ interface Props {
 const { title = "Pedro Castro | Portfolio", description = "Software Developer." } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const currentPath = Astro.url.pathname;
 ---
 
 <html lang="en" dir="ltr">
@@ -36,7 +37,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
   </head>
     <body>
-      <Header />
+      <Header {currentPath} client:load />
         <main class="min-h-screen">
           <slot />
         </main>

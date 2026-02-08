@@ -1,20 +1,26 @@
 <script lang="ts">
-  let links = [
+  let { currentPath = "/" } = $props();
+  const links = [
     { name: "projects", href: "/projects" },
     { name: "blog", href: "/blog" },
     { name: "about", href: "/about" },
   ];
 </script>
 
-<header class="border-b border-border bg-bg/80 backdrop-blur-md sticky top-0 z-50">
-  <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
-    <a href="/" class="text-primary font-bold text-xl hover:text-accent transition-colors" aria-label="Homepage">
-      pedro </a>
-
-    <div class="flex gap-6">
-      {#each links as link}
-        <a href={link.href} class="text-fg-muted hover:text-fg font-mono text-sm transition-colors" aria-label={link.name}>
-          [{link.name}]
+<header class="border-b bg-bg/80 backdrop-blur-md sticky top-0 z-50">
+  <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="text-primary font-bold text-xl hover:text-accent transition-colors">
+      pedro
+    </a>
+    <div class="flex gap-6 font-mono text-sm">
+      {#each links as { name, href }}
+        {@const isActive = currentPath.startsWith(href)}
+        <a {href} class={`group transition-colors flex ${isActive ? 'text-primary' : 'text-muted'}`} >
+          <span>[</span>
+          <span class={`px-0.5 ${isActive ? 'text-fg' : 'text-fg-muted group-hover:text-fg'}`}>
+            {name}
+          </span>
+          <span>]</span>
         </a>
       {/each}
     </div>
