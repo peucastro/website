@@ -1,6 +1,7 @@
 ---
 import "@styles/global.css";
 
+import Footer from "@components/Footer.svelte";
 import Header from "@components/Header.svelte";
 
 interface Props {
@@ -34,8 +35,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
   </head>
-  <body>
-    <Header />
-      <slot />
-  </body>
+    <body class="bg-bg text-fg selection:bg-primary selection:text-bg">
+      <Header />
+        <main class="min-h-screen">
+          <slot />
+        </main>
+      <Footer />
+    </body>
 </html>
