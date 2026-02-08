@@ -2,6 +2,10 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
+  /* Fonts */
+  --font-sans: "IBM Plex Sans Variable", ui-sans-serif, system-ui;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
   /* Backgrounds */
   --color-bg-deep: #1d2021;
   --color-bg: #282828;
