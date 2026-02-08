@@ -1,2 +1,30 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@theme {
+  /* Backgrounds */
+  --color-bg-deep: #1d2021;
+  --color-bg: #282828;
+  --color-bg-soft: #32302f;
+
+  /* Surfaces */
+  --color-surface: #3c3836;
+  --color-surface-soft: #45403d;
+  --color-border: #504945;
+
+  /* Text */
+  --color-fg-strong: #fbf1c7;
+  --color-fg: #ebdbb2;
+  --color-fg-muted: #a89984;
+  --color-muted: #928374;
+
+  /* Accents */
+  --color-primary: #fabd2f;
+  --color-secondary: #8ec07c;
+  --color-accent: #fe8019;
+
+  /* States */
+  --color-success: #b8bb26;
+  --color-warning: #fabd2f;
+  --color-danger: #fb4934;
+}
