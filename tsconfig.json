@@ -4,9 +4,6 @@
   "exclude": ["dist"],
   "compilerOptions": {
     "baseUrl": ".",
-    "strictNullChecks": true,
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
     "paths": {
       "@components/*": ["./src/components/*"],
       "@content/*": ["./src/content/*"],

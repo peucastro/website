@@ -1,6 +1,9 @@
 ---
 import "@styles/global.css";
 
+import Footer from "@components/Footer.svelte";
+import Header from "@components/Header.svelte";
+
 interface Props {
   title?: string;
   description?: string;
@@ -9,6 +12,7 @@ interface Props {
 const { title = "Pedro Castro | Portfolio", description = "Software Developer." } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const currentPath = Astro.url.pathname;
 ---
 
 <html lang="en" dir="ltr">
@@ -32,7 +36,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
   </head>
-  <body>
-    <slot />
-  </body>
+    <body>
+      <Header {currentPath} />
+        <main class="min-h-screen">
+          <slot />
+        </main>
+      <Footer />
+    </body>
 </html>
