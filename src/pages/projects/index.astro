@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "@components/ProjectCard.svelte";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const allProjects = (await getCollection("projects")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout title="projects">
+  <section class="mb-8">
+    <h1 class="text-2xl font-bold text-fg-strong mb-2">projects</h1>
+    <p class="text-fg-muted">A collection of my recent work.</p>
+  </section>
+
+  <section>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {allProjects.map((project) => (
+        <ProjectCard {project} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

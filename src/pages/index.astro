@@ -1,7 +1,35 @@
 ---
+import { getCollection } from "astro:content";
+import ProjectCard from "@components/ProjectCard.svelte";
 import BaseLayout from "@layouts/BaseLayout.astro";
+
+const recentProjects = (await getCollection("projects"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
 ---
 
-<BaseLayout>
-  <h1 class="text-4xl font-bold">Welcome to my site</h1>
+<BaseLayout title="home">
+  <section class="mb-10" >
+    <h1 class="text-2xl font-bold text-fg-strong mb-4">
+      pedro castro <span class="text-muted font-normal">// informatics and computing engineering student </span>
+    </h1>
+    <p class="text-fg-muted max-w-2xl">
+      i have a strong interest in problem-solving and algorithm design. passionate about learning new technologies and contributing to projects. i'm also an avid reader and a strong advocate for open-source collaboration.
+    </p>
+  </section>
+
+  <section>
+    <div class="flex items-center gap-4 mb-8">
+      <h2 class="font-mono text-sm tracking-widest text-secondary">
+        RECENT WORK
+      </h2>
+      <div class="h-px flex-1 bg-border/50"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {recentProjects.map((project) => (
+        <ProjectCard {project} />
+      ))}
+    </div>
+  </section>
 </BaseLayout>

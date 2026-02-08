@@ -16,7 +16,7 @@
     </p>
     <nav class="flex gap-6">
       {#each socials as { name, href, Icon }}
-        <a {href} target="_blank" rel="noopener noreferrer" class="text-muted hover:text-primary transition-colors" aria-label="{name}">
+        <a {href} target="_blank" rel="noopener noreferrer" class="text-muted hover:text-primary transition-colors" aria-label={name}>
           <Icon />
         </a>
       {/each}
