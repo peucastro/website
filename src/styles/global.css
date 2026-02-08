@@ -47,20 +47,24 @@
     scroll-behavior: smooth;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms;
+      animation-iteration-count: 1;
+      transition-duration: 0.01ms;
+      scroll-behavior: auto;
+    }
+  }
+
   body {
-    @apply antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-family: var(--font-sans);
-  }
-
-  ::selection {
-    background-color: var(--color-primary);
-    color: var(--color-bg-deep);
-  }
-
-  strong,
-  b {
-    color: var(--color-fg-strong);
-    font-weight: 600;
   }
 }
 

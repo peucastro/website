@@ -37,7 +37,7 @@ const currentPath = Astro.url.pathname;
     <meta property="og:description" content={description} />
   </head>
     <body>
-      <Header {currentPath} client:load />
+      <Header {currentPath} />
         <main class="min-h-screen">
           <slot />
         </main>
