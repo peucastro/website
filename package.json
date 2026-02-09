@@ -11,12 +11,13 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "biome lint .",
-    "format": "biome format . --write",
-    "check": "biome check .",
-    "check:fix": "biome check --write .",
     "type-check": "svelte-check && astro check",
-    "ci": "pnpm run type-check && biome ci ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "fix": "pnpm format && pnpm lint:fix",
+    "check": "pnpm type-check && pnpm lint && pnpm format:check"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
@@ -33,9 +34,20 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.6",
-    "@biomejs/biome": "2.3.14",
-    "@iconify/json": "^2.2.437",
+    "@iconify-json/lucide": "^1.2.89",
+    "@iconify-json/simple-icons": "^1.2.70",
+    "astro-eslint-parser": "^1.2.2",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.5.0",
+    "eslint-plugin-svelte": "^3.14.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-svelte": "^3.4.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "svelte-check": "^4.3.6",
+    "svelte-eslint-parser": "^1.4.1",
+    "typescript-eslint": "^8.54.0",
     "unplugin-icons": "^23.0.1"
   }
 }

@@ -2,7 +2,7 @@ import { defineCollection, z } from "astro:content";
 
 const uniqueStringArray = z
   .array(z.string())
-  .refine((items) => new Set(items).size === items.length, {
+  .refine((items: string[]) => new Set(items).size === items.length, {
     message: "must be unique",
   })
   .default([]);
@@ -11,7 +11,10 @@ const blog = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string().min(5, "Title is too short").max(60, "Title is too long"),
-    description: z.string().min(20, "Description is too short").max(160, "Description is too long"),
+    description: z
+      .string()
+      .min(20, "Description is too short")
+      .max(160, "Description is too long"),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     tags: uniqueStringArray,

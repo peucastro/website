@@ -8,7 +8,7 @@
     target="_blank"
     rel="noopener noreferrer"
     aria-label={label}
-    class="p-2 hover:text-primary hover:bg-bg-deep border border-transparent hover:border-border transition-all rounded"
+    class="hover:text-primary hover:bg-bg-deep hover:border-border rounded border border-transparent p-2 transition-all"
   >
     <Icon width="16" />
   </a>
