@@ -6,4 +6,6 @@
   let { tag }: Props = $props();
 </script>
 
-<span class="text-xs text-muted border border-border/50 px-1.5 rounded">#{tag}</span>
+<span class="text-muted border-border/50 rounded border px-1.5 text-xs"
+  >#{tag}</span
+>

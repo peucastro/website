@@ -15,7 +15,7 @@ Lorem ipsum dolor sit amet, **consectetur adipiscing elit**, sed do eiusmod temp
 
 ## Sectionis Duo
 
-- *Duis aute irure* dolor in reprehenderit in voluptate.
+- _Duis aute irure_ dolor in reprehenderit in voluptate.
 - Velit esse cillum dolore eu fugiat nulla pariatur.
 - Excepteur sint occaecat cupidatat non proident.
 
