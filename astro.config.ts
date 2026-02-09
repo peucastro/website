@@ -6,6 +6,7 @@ import Icons from "unplugin-icons/vite";
 
 export default defineConfig({
   site: "https://peucastro.me",
+  output: "static",
   integrations: [svelte(), sitemap()],
 
   vite: {
@@ -13,6 +14,7 @@ export default defineConfig({
       tailwindcss(),
       Icons({
         compiler: "svelte",
+        autoInstall: true,
       }),
     ],
   },
