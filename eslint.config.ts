@@ -1,3 +1,4 @@
+import js from "@eslint/js";
 import astroParser from "astro-eslint-parser";
 import eslintPluginAstro from "eslint-plugin-astro";
 import prettierConfig from "eslint-config-prettier";
@@ -10,8 +11,11 @@ export default [
     ignores: ["dist/", ".astro/", "node_modules/", "pnpm-lock.yaml"],
   },
 
+  js.configs.recommended,
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
+  ...sveltePlugin.configs["flat/recommended"],
+
   {
     files: ["**/*.astro"],
     languageOptions: {
@@ -23,7 +27,6 @@ export default [
     },
   },
 
-  ...sveltePlugin.configs["flat/recommended"],
   {
     files: ["**/*.svelte"],
     languageOptions: {
