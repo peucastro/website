@@ -3,16 +3,19 @@
   import IconSun from "~icons/lucide/sun";
   import IconMoon from "~icons/lucide/moon";
 
-  let isDark = $state(false);
+  let isLight = $state<boolean | null>(null);
 
   onMount(() => {
-    isDark = document.documentElement.classList.contains("dark");
+    isLight = document.documentElement.classList.contains("light");
   });
 
   function toggleTheme() {
-    isDark = !isDark;
-    document.documentElement.classList.toggle("dark", isDark);
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    const current = isLight ?? false;
+    const next = !current;
+
+    isLight = next;
+    document.documentElement.classList.toggle("light", next);
+    localStorage.setItem("theme", next ? "light" : "dark");
   }
 </script>
 
@@ -21,7 +24,7 @@
   class="text-muted hover:text-primary transition-colors"
   aria-label="Toggle theme"
 >
-  {#if isDark}
+  {#if isLight}
     <IconSun />
   {:else}
     <IconMoon />
