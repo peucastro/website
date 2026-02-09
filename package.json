@@ -19,8 +19,6 @@
     "ci": "pnpm run type-check && biome ci ."
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
-    "@astrojs/mdx": "^4.3.13",
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/svelte": "^7.2.5",
     "@astrojs/ts-plugin": "^1.10.6",
@@ -38,7 +36,6 @@
     "@biomejs/biome": "2.3.14",
     "@iconify/json": "^2.2.437",
     "svelte-check": "^4.3.6",
-    "unplugin-icons": "^23.0.1",
-    "wrangler": "^4.63.0"
+    "unplugin-icons": "^23.0.1"
   }
 }
