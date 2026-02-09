@@ -7,6 +7,12 @@ import Icons from "unplugin-icons/vite";
 export default defineConfig({
   site: "https://peucastro.me",
   output: "static",
+  prefetch: {
+    prefetchAll: true,
+  },
+  experimental: {
+    clientPrerender: true,
+  },
   integrations: [svelte(), sitemap()],
 
   vite: {
