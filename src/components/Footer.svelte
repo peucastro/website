@@ -2,6 +2,7 @@
   import IconGithub from "~icons/simple-icons/github";
   import IconLinkedin from "~icons/simple-icons/linkedin";
   import IconFileText from "~icons/lucide/file-text";
+  import ThemeToggle from "@components/ThemeToggle.svelte";
 
   const currentYear = new Date().getFullYear();
   const socials = [
@@ -26,7 +27,7 @@
     <p class="text-fg-muted">
       &copy; {currentYear} // Pedro Castro
     </p>
-    <nav class="flex gap-6">
+    <nav class="flex items-center gap-6">
       {#each socials as { name, href, Icon } (name)}
         <a
           {href}
@@ -38,6 +39,7 @@
           <Icon />
         </a>
       {/each}
+      <ThemeToggle />
     </nav>
   </div>
 </footer>
