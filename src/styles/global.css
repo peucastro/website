@@ -4,37 +4,74 @@
 
 @plugin "@tailwindcss/typography";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Fonts */
   --font-sans: "IBM Plex Sans Variable", ui-sans-serif, system-ui;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
+  /* Light theme colors */
   /* Backgrounds */
-  --color-bg: #282828;
-  --color-bg-deep: #1d2021;
-  --color-bg-soft: #32302f;
+  --color-bg: #fbf1c7;
+  --color-bg-deep: #f9f5d7;
+  --color-bg-soft: #f2e5bc;
 
   /* Surfaces */
-  --color-surface: #3c3836;
-  --color-surface-soft: #45403d;
-  --color-border: #504945;
+  --color-surface: #ebdbb2;
+  --color-surface-soft: #d5c4a1;
+  --color-border: #bdae93;
 
   /* Text */
-  --color-fg: #ebdbb2;
-  --color-fg-strong: #fbf1c7;
-  --color-fg-muted: #a89984;
-  --color-muted: #928374;
+  --color-fg: #3c3836;
+  --color-fg-strong: #282828;
+  --color-fg-muted: #665c54;
+  --color-muted: #7c6f64;
 
   /* Accents */
-  --color-primary: #fe8019;
-  --color-secondary: #fabd2f;
-  --color-accent: #fabd2f;
+  --color-primary: #d65d0e;
+  --color-secondary: #d79921;
+  --color-accent: #d79921;
 
   /* States */
-  --color-success: #b8bb26;
-  --color-warning: #fabd2f;
-  --color-danger: #fb4934;
-  --color-info: #83a598;
+  --color-success: #98971a;
+  --color-warning: #d79921;
+  --color-danger: #cc241d;
+  --color-info: #458588;
+}
+
+/* Override variables for Dark Mode */
+@layer theme {
+  :root {
+    @variant dark {
+      /* Backgrounds */
+      --color-bg: #282828;
+      --color-bg-deep: #1d2021;
+      --color-bg-soft: #32302f;
+
+      /* Surfaces */
+      --color-surface: #3c3836;
+      --color-surface-soft: #45403d;
+      --color-border: #504945;
+
+      /* Text */
+      --color-fg: #ebdbb2;
+      --color-fg-strong: #fbf1c7;
+      --color-fg-muted: #a89984;
+      --color-muted: #928374;
+
+      /* Accents */
+      --color-primary: #fe8019;
+      --color-secondary: #fabd2f;
+      --color-accent: #fabd2f;
+
+      /* States */
+      --color-success: #b8bb26;
+      --color-warning: #fabd2f;
+      --color-danger: #fb4934;
+      --color-info: #83a598;
+    }
+  }
 }
 
 @layer base {
@@ -48,6 +85,10 @@
     background-color: var(--color-bg);
     color: var(--color-fg);
     scroll-behavior: smooth;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
   }
 
   @media (prefers-reduced-motion: reduce) {
