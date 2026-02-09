@@ -24,6 +24,34 @@ const currentPath = Astro.url.pathname;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 
+    <script is:inline>
+      (function () {
+        const getThemePreference = () => {
+          const saved =
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme");
+          if (saved) return saved;
+
+          return window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        };
+
+        const theme = getThemePreference();
+        const root = document.documentElement;
+
+        root.classList.toggle("light", theme === "light");
+
+        window
+          .matchMedia("(prefers-color-scheme: light)")
+          .addEventListener("change", (e) => {
+            if (!localStorage.getItem("theme")) {
+              root.classList.toggle("light", e.matches);
+            }
+          });
+      })();
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
     <link
       rel="icon"
@@ -57,6 +85,6 @@ const currentPath = Astro.url.pathname;
     <main class="mx-auto mt-12 mb-12 min-h-screen max-w-5xl px-6">
       <slot />
     </main>
-    <Footer />
+    <Footer client:visible />
   </body>
 </html>

@@ -4,11 +4,14 @@
 
 @plugin "@tailwindcss/typography";
 
+@custom-variant light (&:where(.light, .light *));
+
 @theme {
   /* Fonts */
   --font-sans: "IBM Plex Sans Variable", ui-sans-serif, system-ui;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
+  /* Dark theme colors (default) */
   /* Backgrounds */
   --color-bg: #282828;
   --color-bg-deep: #1d2021;
@@ -37,6 +40,36 @@
   --color-info: #83a598;
 }
 
+/* Override variables for Light Mode */
+@layer theme {
+  :root {
+    @variant light {
+      /* Light theme overrides */
+      --color-bg: #fbf1c7;
+      --color-bg-deep: #f9f5d7;
+      --color-bg-soft: #f2e5bc;
+
+      --color-surface: #ebdbb2;
+      --color-surface-soft: #d5c4a1;
+      --color-border: #bdae93;
+
+      --color-fg: #3c3836;
+      --color-fg-strong: #282828;
+      --color-fg-muted: #665c54;
+      --color-muted: #7c6f64;
+
+      --color-primary: #d65d0e;
+      --color-secondary: #d79921;
+      --color-accent: #d79921;
+
+      --color-success: #98971a;
+      --color-warning: #d79921;
+      --color-danger: #cc241d;
+      --color-info: #458588;
+    }
+  }
+}
+
 @layer base {
   *,
   ::after,
@@ -48,11 +81,16 @@
     background-color: var(--color-bg);
     color: var(--color-fg);
     scroll-behavior: smooth;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
   }
 
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
+      transition: none;
     }
     *,
     ::before,
