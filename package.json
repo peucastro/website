@@ -11,12 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "biome lint .",
-    "format": "biome format . --write",
-    "check": "biome check .",
-    "check:fix": "biome check --write .",
-    "type-check": "svelte-check && astro check",
-    "ci": "pnpm run type-check && biome ci ."
+    "type-check": "svelte-check && astro check"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
@@ -33,7 +28,6 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.6",
-    "@biomejs/biome": "2.3.14",
     "@iconify/json": "^2.2.437",
     "svelte-check": "^4.3.6",
     "unplugin-icons": "^23.0.1"

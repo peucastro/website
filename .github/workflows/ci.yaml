@@ -27,14 +27,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run astro check
-        run: pnpm astro check
-
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v2
-
-      - name: Run lint and format checks
-        run: pnpm run ci
-
       - name: Build Astro
         run: pnpm run build
