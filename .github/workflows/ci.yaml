@@ -27,5 +27,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Run lint and format checks
+        run: pnpm run check
+
       - name: Build Astro
         run: pnpm run build
