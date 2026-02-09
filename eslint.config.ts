@@ -1,6 +1,7 @@
 import js from "@eslint/js";
 import astroParser from "astro-eslint-parser";
 import eslintPluginAstro from "eslint-plugin-astro";
+import globals from "globals";
 import prettierConfig from "eslint-config-prettier";
 import svelteParser from "svelte-eslint-parser";
 import sveltePlugin from "eslint-plugin-svelte";
@@ -15,6 +16,15 @@ export default [
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
   ...sveltePlugin.configs["flat/recommended"],
+
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+  },
 
   {
     files: ["**/*.astro"],
