@@ -21,7 +21,9 @@
 
 <button
   onclick={toggleTheme}
-  class="text-muted hover:text-primary transition-colors"
+  class="text-muted hover:text-primary transition-colors {isLight === null
+    ? 'invisible'
+    : ''}"
   aria-label="Toggle theme"
 >
   {#if isLight}

@@ -42,10 +42,6 @@ const currentPath = Astro.url.pathname;
 
         root.classList.toggle("light", theme === "light");
 
-        window.addEventListener("load", () => {
-          root.classList.add("theme-transition");
-        });
-
         window
           .matchMedia("(prefers-color-scheme: light)")
           .addEventListener("change", (e) => {
