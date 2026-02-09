@@ -1,5 +1,14 @@
 <script lang="ts">
-  let { href, icon: Icon, label } = $props();
+  import type { Component } from "svelte";
+  import type { SvelteHTMLElements } from "svelte/elements";
+
+  interface Props {
+    href: string;
+    icon: Component<SvelteHTMLElements["svg"]>;
+    label: string;
+  }
+
+  let { href, icon: Icon, label }: Props = $props();
 </script>
 
 {#if href}

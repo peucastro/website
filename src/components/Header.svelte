@@ -1,5 +1,9 @@
 <script lang="ts">
-  let { currentPath = "/" } = $props();
+  interface Props {
+    currentPath?: string;
+  }
+
+  let { currentPath = "/" }: Props = $props();
   const links = [
     { name: "projects", href: "/projects" },
     { name: "blog", href: "/blog" },

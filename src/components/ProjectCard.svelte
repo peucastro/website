@@ -38,16 +38,20 @@
     </div>
 
     <div class="text-muted flex gap-1">
-      <IconLink
-        href={project.data.repositoryUrl}
-        icon={IconGithub}
-        label="Source Code"
-      />
-      <IconLink
-        href={project.data.liveUrl}
-        icon={IconExternal}
-        label="Live Demo"
-      />
+      {#if project.data.repositoryUrl}
+        <IconLink
+          href={project.data.repositoryUrl}
+          icon={IconGithub}
+          label="Source Code"
+        />
+      {/if}
+      {#if project.data.liveUrl}
+        <IconLink
+          href={project.data.liveUrl}
+          icon={IconExternal}
+          label="Live Demo"
+        />
+      {/if}
     </div>
   </header>
 

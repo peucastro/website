@@ -6,16 +6,16 @@
 
   const currentYear = new Date().getFullYear();
   const socials = [
+    {
+      name: "curriculum vitae",
+      href: "https://cv.peucastro.me/",
+      Icon: IconFileText,
+    },
     { name: "github", href: "https://github.com/peucastro", Icon: IconGithub },
     {
       name: "linkedin",
       href: "https://linkedin.com/in/peucastro",
       Icon: IconLinkedin,
-    },
-    {
-      name: "curriculum vitae",
-      href: "https://cv.peucastro.me/",
-      Icon: IconFileText,
     },
   ];
 </script>
@@ -28,6 +28,7 @@
       &copy; {currentYear} // Pedro Castro
     </p>
     <nav class="flex items-center gap-6">
+      <ThemeToggle />
       {#each socials as { name, href, Icon } (name)}
         <a
           {href}
@@ -39,7 +40,6 @@
           <Icon />
         </a>
       {/each}
-      <ThemeToggle />
     </nav>
   </div>
 </footer>
