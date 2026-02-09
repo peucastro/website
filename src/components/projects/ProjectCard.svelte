@@ -1,6 +1,6 @@
 <script lang="ts">
-  import IconLink from "@components/IconLink.svelte";
-  import TagBadge from "@components/TagBadge.svelte";
+  import IconLink from "@components/ui/IconLink.svelte";
+  import TagBadge from "@components/ui/TagBadge.svelte";
   import { formatDate, type Project, projectStatusMap } from "$lib/utils";
   import IconExternal from "~icons/lucide/external-link";
   import IconGithub from "~icons/simple-icons/github";

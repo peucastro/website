@@ -2,7 +2,7 @@
   import IconGithub from "~icons/simple-icons/github";
   import IconLinkedin from "~icons/simple-icons/linkedin";
   import IconFileText from "~icons/lucide/file-text";
-  import ThemeToggle from "@components/ThemeToggle.svelte";
+  import ThemeToggle from "@components/common/ThemeToggle.svelte";
 
   const currentYear = new Date().getFullYear();
   const socials = [
