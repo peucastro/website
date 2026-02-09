@@ -1,6 +1,7 @@
 <script lang="ts">
   import IconGithub from "~icons/simple-icons/github";
   import IconLinkedin from "~icons/simple-icons/linkedin";
+  import IconFileText from "~icons/lucide/file-text";
 
   const currentYear = new Date().getFullYear();
   const socials = [
@@ -9,6 +10,11 @@
       name: "linkedin",
       href: "https://linkedin.com/in/peucastro",
       Icon: IconLinkedin,
+    },
+    {
+      name: "curriculum vitae",
+      href: "https://cv.peucastro.me/",
+      Icon: IconFileText,
     },
   ];
 </script>
