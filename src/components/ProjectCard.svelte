@@ -57,11 +57,11 @@
 
   <footer class="flex flex-col gap-3">
     <div class="flex flex-wrap gap-2">
-      {#each project.data.tags as tag, index (index)}
+      {#each project.data.tags as tag (tag)}
         <TagBadge {tag} />
       {/each}
 
-      {#each project.data.technologies as tech, index (index)}
+      {#each project.data.technologies as tech (tech)}
         <span
           class="bg-bg-deep text-secondary border-border/50 group-hover:border-secondary/30 border px-2 py-0.5 font-mono text-xs uppercase transition-colors"
         >

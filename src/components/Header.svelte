@@ -16,7 +16,7 @@
       pedro
     </a>
     <div class="flex gap-6 font-mono text-sm">
-      {#each links as { name, href }, index (index)}
+      {#each links as { name, href } (name)}
         {@const isActive = currentPath.startsWith(href)}
         <a
           {href}

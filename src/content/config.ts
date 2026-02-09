@@ -2,7 +2,7 @@ import { defineCollection, z } from "astro:content";
 
 const uniqueStringArray = z
   .array(z.string())
-  .refine((items) => new Set(items).size === items.length, {
+  .refine((items: string[]) => new Set(items).size === items.length, {
     message: "must be unique",
   })
   .default([]);

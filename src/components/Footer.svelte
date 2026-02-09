@@ -21,7 +21,7 @@
       &copy; {currentYear} // Pedro Castro
     </p>
     <nav class="flex gap-6">
-      {#each socials as { name, href, Icon }, index (index)}
+      {#each socials as { name, href, Icon } (name)}
         <a
           {href}
           target="_blank"
