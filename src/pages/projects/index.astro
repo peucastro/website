@@ -16,7 +16,7 @@ const allProjects = (await getCollection("projects")).sort(
 
   <section>
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-      {allProjects.map((project) => <ProjectCard {project} />)}
+      {allProjects.map((entry) => <ProjectCard project={entry.data} />)}
     </div>
   </section>
 </BaseLayout>

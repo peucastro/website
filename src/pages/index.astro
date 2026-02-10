@@ -32,7 +32,7 @@ const recentPosts = (await getCollection("blog"))
     <section>
       <SectionHeader title="Recent Work" />
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {recentProjects.map((project) => <ProjectCard {project} />)}
+        {recentProjects.map((entry) => <ProjectCard project={entry.data} />)}
       </div>
     </section>
 
@@ -40,9 +40,9 @@ const recentPosts = (await getCollection("blog"))
       <SectionHeader title="Latest from Blog" />
       <div class="flex flex-col">
         {
-          recentPosts.map((post, index) => (
+          recentPosts.map((entry, index) => (
             <div class={index !== 0 ? "border-border/40 border-t" : ""}>
-              <PostCard {post} />
+              <PostCard post={entry.data} />
             </div>
           ))
         }
