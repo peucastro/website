@@ -7,10 +7,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 const recentProjects = (await getCollection("projects"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 4);
+  .slice(0, 4)
+  .map((entry) => entry.data);
 const recentPosts = (await getCollection("blog"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .slice(0, 3)
+  .map((entry) => entry.data);
 ---
 
 <BaseLayout title="home">
@@ -32,7 +34,7 @@ const recentPosts = (await getCollection("blog"))
     <section>
       <SectionHeader title="Recent Work" />
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {recentProjects.map((entry) => <ProjectCard project={entry.data} />)}
+        {recentProjects.map((project) => <ProjectCard {project} />)}
       </div>
     </section>
 
@@ -40,9 +42,9 @@ const recentPosts = (await getCollection("blog"))
       <SectionHeader title="Latest from Blog" />
       <div class="flex flex-col">
         {
-          recentPosts.map((entry, index) => (
+          recentPosts.map((post, index) => (
             <div class={index !== 0 ? "border-border/40 border-t" : ""}>
-              <PostCard post={entry.data} />
+              <PostCard {post} />
             </div>
           ))
         }

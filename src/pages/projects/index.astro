@@ -3,9 +3,9 @@ import { getCollection } from "astro:content";
 import ProjectCard from "@components/projects/ProjectCard.svelte";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-const allProjects = (await getCollection("projects")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const allProjects = (await getCollection("projects"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .map((entry) => entry.data);
 ---
 
 <BaseLayout title="projects">
@@ -16,7 +16,7 @@ const allProjects = (await getCollection("projects")).sort(
 
   <section>
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-      {allProjects.map((entry) => <ProjectCard project={entry.data} />)}
+      {allProjects.map((project) => <ProjectCard {project} />)}
     </div>
   </section>
 </BaseLayout>
