@@ -1,11 +1,12 @@
 ---
-import { getCollection } from "astro:content";
+import PostCard from "@components/blog/PostCard.svelte";
 import ProjectCard from "@components/projects/ProjectCard.svelte";
+import SectionHeader from "@components/ui/SectionHeader.svelte";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getPosts, getProjects } from "$lib/content";
 
-const recentProjects = (await getCollection("projects"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 6);
+const recentProjects = await getProjects(4);
+const recentPosts = await getPosts(3);
 ---
 
 <BaseLayout title="home">
@@ -23,16 +24,25 @@ const recentProjects = (await getCollection("projects"))
     </p>
   </section>
 
-  <section>
-    <div class="mb-8 flex items-center gap-4">
-      <h2 class="text-secondary font-mono text-sm tracking-widest">
-        RECENT WORK
-      </h2>
-      <div class="bg-border/50 h-px flex-1"></div>
-    </div>
+  <div class="flex flex-col gap-20 py-10">
+    <section>
+      <SectionHeader title="Recent Work" />
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {recentProjects.map((project) => <ProjectCard {project} />)}
+      </div>
+    </section>
 
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-      {recentProjects.map((project) => <ProjectCard {project} />)}
-    </div>
-  </section>
+    <section>
+      <SectionHeader title="Latest from Blog" />
+      <div class="flex flex-col">
+        {
+          recentPosts.map((post, index) => (
+            <div class={index !== 0 ? "border-border/40 border-t" : ""}>
+              <PostCard {post} />
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </div>
 </BaseLayout>

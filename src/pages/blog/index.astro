@@ -1,7 +1,28 @@
 ---
+import PostCard from "@components/blog/PostCard.svelte";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getPosts } from "$lib/content";
+
+const allPosts = await getPosts();
 ---
 
-<BaseLayout>
-  <h1 class="text-4xl font-bold">Blog</h1>
+<BaseLayout title="blog">
+  <section class="mb-8">
+    <h1 class="text-fg-strong mb-2 text-2xl font-bold">blog</h1>
+    <p class="text-fg-muted">
+      Occasional thoughts on technology and everything else.
+    </p>
+  </section>
+
+  <section>
+    <div class="flex flex-col">
+      {
+        allPosts.map((post, index) => (
+          <div class={index !== 0 ? "border-border/40 border-t" : ""}>
+            <PostCard {post} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>
