@@ -2,17 +2,15 @@
 import PostCard from "@components/blog/PostCard.svelte";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getPosts } from "$lib/content";
+import PageHeader from "@components/common/PageHeader.astro";
 
 const allPosts = await getPosts();
 ---
 
 <BaseLayout title="blog">
-  <section class="mb-8">
-    <h1 class="text-fg-strong mb-2 text-2xl font-bold">blog</h1>
-    <p class="text-fg-muted">
-      Occasional thoughts on technology and everything else.
-    </p>
-  </section>
+  <PageHeader title="blog">
+    <p>Occasional thoughts on technology and everything else.</p>
+  </PageHeader>
 
   <section>
     <div class="flex flex-col">

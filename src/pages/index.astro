@@ -4,25 +4,24 @@ import ProjectCard from "@components/projects/ProjectCard.svelte";
 import SectionHeader from "@components/ui/SectionHeader.svelte";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getPosts, getProjects } from "$lib/content";
+import PageHeader from "@components/common/PageHeader.astro";
 
 const recentProjects = await getProjects(4);
 const recentPosts = await getPosts(3);
 ---
 
 <BaseLayout title="home">
-  <section class="mb-10">
-    <h1 class="text-fg-strong mb-4 text-2xl font-bold">
-      pedro castro <span class="text-muted font-normal"
-        >// informatics and computing engineering student
-      </span>
-    </h1>
-    <p class="text-fg-muted max-w-2xl">
+  <PageHeader
+    title="pedro castro"
+    subtitle="// informatics and computing engineering student"
+  >
+    <p class="mt-4">
       i have a strong interest in problem-solving and algorithm design.
       passionate about learning new technologies and contributing to projects.
       i'm also an avid reader and a strong advocate for open-source
       collaboration.
     </p>
-  </section>
+  </PageHeader>
 
   <div class="flex flex-col gap-20 py-10">
     <section>

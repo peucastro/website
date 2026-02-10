@@ -2,15 +2,15 @@
 import ProjectCard from "@components/projects/ProjectCard.svelte";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getProjects } from "$lib/content";
+import PageHeader from "@components/common/PageHeader.astro";
 
 const allProjects = await getProjects();
 ---
 
 <BaseLayout title="projects">
-  <section class="mb-8">
-    <h1 class="text-fg-strong mb-2 text-2xl font-bold">projects</h1>
-    <p class="text-fg-muted">A collection of my recent work.</p>
-  </section>
+  <PageHeader title="projects">
+    <p>A collection of my recent work.</p>
+  </PageHeader>
 
   <section>
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
