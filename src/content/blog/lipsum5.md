@@ -2,6 +2,7 @@
 title: "Lorem Ipsum Dolor 5"
 description: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 pubDate: 2026-02-05
+category: "lorem"
 tags: ["lorem", "ipsum"]
 ---
 

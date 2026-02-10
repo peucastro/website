@@ -15,6 +15,10 @@ export const blogSchema = z.object({
     .max(160, "Description is too long"),
   pubDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
+  category: z
+    .string()
+    .min(2, "Category is too short")
+    .max(32, "Category is too long"),
   tags: uniqueStringArray,
 });
 

@@ -4,9 +4,10 @@ export const projectStatusMap = {
   archived: "text-muted border-border bg-bg-deep",
 } as const;
 
-export function formatDate(date: Date) {
+export function formatDate(date: Date, includeDay = false) {
   return date.toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
+    ...(includeDay && { day: "numeric" }),
   });
 }
