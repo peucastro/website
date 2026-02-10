@@ -1,0 +1,31 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="404">
+  <section
+    class="flex min-h-[75vh] flex-col items-center justify-center text-center"
+  >
+    <span class="text-primary mb-2 font-mono text-xs uppercase">
+      Error 404
+    </span>
+
+    <h1 class="text-fg-strong mb-4 text-4xl font-bold">
+      Something is missing.
+    </h1>
+
+    <div class="text-fg-muted mb-8 max-w-xs space-y-2">
+      <p>Sorry, I couldn't find that page :(</p>
+      <p class="text-sm italic opacity-80">
+        Maybe it doesn't exist anymore, or maybe it never existed at all...
+      </p>
+    </div>
+
+    <a
+      href="/"
+      class="text-fg-strong border-primary hover:text-primary border-b-2 text-sm font-bold transition-all"
+    >
+      Go back home
+    </a>
+  </section>
+</BaseLayout>
