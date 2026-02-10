@@ -1,0 +1,43 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import TagBadge from "@components/ui/TagBadge.svelte";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  label: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, label, tags } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="mx-auto max-w-3xl">
+    <header class="mb-12 space-y-2">
+      <div class="text-muted flex gap-2 font-mono text-xs uppercase">
+        <span class="text-primary">{label}</span>
+        <span class="select-none">/</span>
+        <time>{pubDate.toDateString()}</time>
+      </div>
+
+      <h1 class="text-fg-strong text-4xl font-bold lowercase">
+        {title}
+      </h1>
+      {
+        tags && tags.length > 0 && (
+          <div class="mt-2 flex flex-wrap gap-2">
+            {tags.map((tag: string) => (
+              <TagBadge {tag} />
+            ))}
+          </div>
+        )
+      }
+    </header>
+
+    <section class="prose dark:prose-invert max-w-none">
+      <slot />
+    </section>
+  </article>
+</BaseLayout>
