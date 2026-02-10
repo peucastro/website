@@ -1,11 +1,9 @@
 ---
-import { getCollection } from "astro:content";
 import ProjectCard from "@components/projects/ProjectCard.svelte";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getProjects } from "$lib/content";
 
-const allProjects = (await getCollection("projects"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .map((entry) => entry.data);
+const allProjects = await getProjects();
 ---
 
 <BaseLayout title="projects">

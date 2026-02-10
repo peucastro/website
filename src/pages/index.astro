@@ -1,18 +1,12 @@
 ---
-import { getCollection } from "astro:content";
 import PostCard from "@components/blog/PostCard.svelte";
 import ProjectCard from "@components/projects/ProjectCard.svelte";
 import SectionHeader from "@components/ui/SectionHeader.svelte";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getPosts, getProjects } from "$lib/content";
 
-const recentProjects = (await getCollection("projects"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 4)
-  .map((entry) => entry.data);
-const recentPosts = (await getCollection("blog"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3)
-  .map((entry) => entry.data);
+const recentProjects = await getProjects(4);
+const recentPosts = await getPosts(3);
 ---
 
 <BaseLayout title="home">
