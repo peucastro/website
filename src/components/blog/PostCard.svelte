@@ -10,9 +10,7 @@
   let { post }: Props = $props();
 </script>
 
-<article
-  class="group hover:bg-surface/40 my-3 flex flex-col rounded-md px-4 py-6 transition-all"
->
+<article class="group my-3 flex flex-col rounded-md py-6 transition-all">
   <header class="mb-3">
     <h3
       class="text-fg-strong group-hover:text-primary mb-2 text-lg font-bold transition-colors"
