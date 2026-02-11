@@ -1,6 +1,10 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
+
 import ContentLayout from "@layouts/ContentLayout.astro";
+import IconLink from "@components/ui/IconLink.svelte";
+import IconGithub from "~icons/simple-icons/github";
+import IconExternal from "~icons/lucide/external-link";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -20,41 +24,34 @@ const { technologies, liveUrl, repositoryUrl } = entry.data;
 ---
 
 <ContentLayout {...entry.data} label={entry.data.status}>
-  <div class="mt-2 flex flex-wrap gap-2">
-    {
-      technologies &&
-        technologies.map((tech) => (
-          <span class="bg-primary/10 text-primary rounded px-2 py-0.5 font-mono text-xs">
-            {tech}
-          </span>
-        ))
-    }
-  </div>
-  <div class="mt-2 flex gap-4">
-    {
-      liveUrl && (
-        <a
-          href={liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary underline"
-        >
-          Live
-        </a>
-      )
-    }
-    {
-      repositoryUrl && (
-        <a
-          href={repositoryUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary underline"
-        >
-          Repository
-        </a>
-      )
-    }
+  <div class="mb-8 flex items-center justify-between gap-4">
+    <div class="flex flex-wrap gap-2">
+      {
+        technologies &&
+          technologies.map((tech) => (
+            <span class="bg-primary/10 text-primary rounded px-2 py-0.5 font-mono text-xs">
+              {tech}
+            </span>
+          ))
+      }
+    </div>
+
+    <div class="text-muted flex gap-1">
+      {
+        repositoryUrl && (
+          <IconLink
+            href={repositoryUrl}
+            icon={IconGithub}
+            label="Source Code"
+          />
+        )
+      }
+      {
+        liveUrl && (
+          <IconLink href={liveUrl} icon={IconExternal} label="Live Demo" />
+        )
+      }
+    </div>
   </div>
 
   <Content />
