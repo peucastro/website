@@ -26,7 +26,7 @@ const isUpdated = updatedDate && updatedDate.getTime() > pubDate.getTime();
 
   {
     isUpdated && (
-      <div class="text-muted mt-18 text-center text-xs uppercase font-mono">
+      <div class="text-muted mt-18 text-center font-mono text-xs uppercase">
         <span>Last updated on</span>
         <time datetime={updatedDate.toISOString()}>
           {formatDate(updatedDate, true)}
