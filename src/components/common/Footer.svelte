@@ -2,6 +2,8 @@
   import IconGithub from "~icons/simple-icons/github";
   import IconLinkedin from "~icons/simple-icons/linkedin";
   import IconFileText from "~icons/lucide/file-text";
+  import IconRss from "~icons/lucide/rss";
+  import IconMail from "~icons/lucide/mail";
   import ThemeToggle from "@components/common/ThemeToggle.svelte";
 
   const currentYear = new Date().getFullYear();
@@ -16,6 +18,16 @@
       name: "linkedin",
       href: "https://linkedin.com/in/peucastro",
       Icon: IconLinkedin,
+    },
+    {
+      name: "e-mail",
+      href: "mailto:falecompedroac@gmail.com",
+      Icon: IconMail,
+    },
+    {
+      name: "rss",
+      href: "https://peucastro.me/rss.xml",
+      Icon: IconRss,
     },
   ];
 </script>
