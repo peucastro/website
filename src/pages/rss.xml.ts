@@ -1,25 +1,28 @@
 import rss from "@astrojs/rss";
+import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
 
-export async function GET(context) {
+export async function GET(context: APIContext) {
   const blog = await getCollection("blog");
   const projects = await getCollection("projects");
+
+  const SITE_AUTHOR_EMAIL = "falecompedroac@gmail.com";
 
   const entries = [
     ...blog.map((post) => ({
       title: post.data.title,
-      pubDate: post.data.pubDate,
+      pubDate: post.data.updatedDate || post.data.pubDate,
       description: post.data.description,
       link: `/blog/${post.slug}/`,
-      author: "falecompedroac@gmail.com",
+      author: SITE_AUTHOR_EMAIL,
       categories: post.data.tags || [],
     })),
     ...projects.map((project) => ({
       title: project.data.title,
-      pubDate: project.data.updatedDate || project.data.pubDate,
+      pubDate: project.data.pubDate,
       description: project.data.description,
       link: `/projects/${project.slug}/`,
-      author: "falecompedroac@gmail.com",
+      author: SITE_AUTHOR_EMAIL,
       categories: project.data.tags || [],
     })),
   ];

@@ -19,7 +19,7 @@ const { title, description, pubDate, label, tags } = Astro.props;
       <div class="text-muted flex gap-2 font-mono text-xs uppercase">
         <span class="text-primary">{label}</span>
         <span class="select-none">/</span>
-        <time>{pubDate.toDateString()}</time>
+        <time datetime={pubDate.toISOString()}>{pubDate.toDateString()}</time>
       </div>
 
       <h1 class="text-fg-strong text-4xl leading-relaxed font-bold lowercase">
