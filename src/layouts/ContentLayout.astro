@@ -15,14 +15,14 @@ const { title, description, pubDate, label, tags } = Astro.props;
 
 <BaseLayout title={title} description={description}>
   <article class="mx-auto max-w-3xl">
-    <header class="mb-12 space-y-2">
+    <header class="mb-8 space-y-2">
       <div class="text-muted flex gap-2 font-mono text-xs uppercase">
         <span class="text-primary">{label}</span>
         <span class="select-none">/</span>
         <time>{pubDate.toDateString()}</time>
       </div>
 
-      <h1 class="text-fg-strong text-4xl font-bold lowercase">
+      <h1 class="text-fg-strong text-4xl leading-relaxed font-bold lowercase">
         {title}
       </h1>
       {
@@ -34,9 +34,16 @@ const { title, description, pubDate, label, tags } = Astro.props;
           </div>
         )
       }
+
+      {
+        /* Project-specific metadata (technologies, links) will be slotted in by the page if needed */
+      }
+      <slot name="meta" />
     </header>
 
-    <section class="prose dark:prose-invert max-w-none">
+    <section
+      class="prose dark:prose-invert prose-headings:text-fg-strong prose-code:text-primary max-w-none"
+    >
       <slot />
     </section>
   </article>
