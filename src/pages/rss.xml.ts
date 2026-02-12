@@ -3,6 +3,10 @@ import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
 
 export async function GET(context: APIContext) {
+  if (!context.site) {
+    throw new Error('RSS feed requires a "site" property in astro.config.ts');
+  }
+
   const blog = await getCollection("blog");
   const projects = await getCollection("projects");
 
