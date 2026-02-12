@@ -14,19 +14,22 @@
 </script>
 
 <article
-  class="group border-border bg-bg-soft hover:border-primary/80 hover:bg-surface/50 border p-6 transition-all"
+  class="group border-border bg-bg-soft hover:border-primary/80 hover:bg-surface/50 relative border p-6 transition-all"
 >
   <header class="mb-4 flex items-start justify-between gap-4">
     <div>
       <h3
         class="text-fg-strong group-hover:text-primary mb-2 text-lg font-bold transition-colors"
       >
-        {project.title}
+        <a href={`/projects/${project.slug}`} class="focus:outline-none">
+          <span class="absolute inset-0 z-0" aria-hidden="true"></span>
+          {project.title}
+        </a>
       </h3>
       <div class="text-muted flex items-center gap-3 font-mono text-xs">
-        <time datetime={project.pubDate.toISOString()}
-          >{formatDate(project.pubDate)}</time
-        >
+        <time datetime={project.pubDate.toISOString()}>
+          {formatDate(project.pubDate)}
+        </time>
         <span class="bg-border h-1 w-1 rounded-full"></span>
         <span
           class="rounded border px-2 py-0.5 {projectStatusMap[
@@ -38,7 +41,7 @@
       </div>
     </div>
 
-    <div class="text-muted flex gap-1">
+    <div class="text-muted relative z-10 flex gap-1">
       {#if project.repositoryUrl}
         <IconLink
           href={project.repositoryUrl}

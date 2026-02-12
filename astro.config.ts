@@ -24,4 +24,13 @@ export default defineConfig({
       }),
     ],
   },
+
+  markdown: {
+    shikiConfig: {
+      themes: {
+        dark: "gruvbox-dark-hard",
+        light: "gruvbox-light-soft",
+      },
+    },
+  },
 });
