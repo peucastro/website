@@ -24,7 +24,7 @@ const { technologies, liveUrl, repositoryUrl } = entry.data;
 ---
 
 <ContentLayout {...entry.data} label={entry.data.status}>
-  <div class="mb-8 flex items-center justify-between gap-4">
+  <div slot="meta" class="flex items-center justify-between gap-4">
     <div class="flex flex-wrap gap-2">
       {
         technologies &&
@@ -53,6 +53,5 @@ const { technologies, liveUrl, repositoryUrl } = entry.data;
       }
     </div>
   </div>
-
   <Content />
 </ContentLayout>
