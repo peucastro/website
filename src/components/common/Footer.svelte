@@ -1,6 +1,6 @@
 <script lang="ts">
-  import IconGithub from "~icons/simple-icons/github";
-  import IconLinkedin from "~icons/simple-icons/linkedin";
+  import { SITE_METADATA, SOCIAL_LINKS } from "$lib/config";
+  import { SOCIAL_ICONS } from "$lib/icons";
   import IconFileText from "~icons/lucide/file-text";
   import IconRss from "~icons/lucide/rss";
   import IconMail from "~icons/lucide/mail";
@@ -13,20 +13,19 @@
       href: "https://cv.peucastro.me/",
       Icon: IconFileText,
     },
-    { name: "github", href: "https://github.com/peucastro", Icon: IconGithub },
-    {
-      name: "linkedin",
-      href: "https://linkedin.com/in/peucastro",
-      Icon: IconLinkedin,
-    },
+    ...SOCIAL_LINKS.map(({ name, href, icon }) => ({
+      name: name.toLowerCase(),
+      href,
+      Icon: SOCIAL_ICONS[icon],
+    })),
     {
       name: "e-mail",
-      href: "mailto:falecompedroac@gmail.com",
+      href: `mailto:${SITE_METADATA.email}`,
       Icon: IconMail,
     },
     {
       name: "rss",
-      href: "https://peucastro.me/rss.xml",
+      href: `${SITE_METADATA.siteUrl}/rss.xml`,
       Icon: IconRss,
     },
   ];
