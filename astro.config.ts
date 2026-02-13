@@ -3,9 +3,10 @@ import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import Icons from "unplugin-icons/vite";
+import { SITE_METADATA } from "$lib/config";
 
 export default defineConfig({
-  site: "https://peucastro.me",
+  site: SITE_METADATA.siteUrl,
   output: "static",
   prefetch: {
     prefetchAll: true,

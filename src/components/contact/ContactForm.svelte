@@ -1,6 +1,7 @@
 <script lang="ts">
-  const targetEmail: string = "falecompedroac@gmail.com";
-  const actionUrl = `https://formsubmit.io/send/${targetEmail}`;
+  import { SITE_METADATA } from "$lib/config";
+
+  const actionUrl = `https://formsubmit.io/send/${SITE_METADATA.email}`;
 </script>
 
 <form action={actionUrl} method="POST" class="space-y-6">
