@@ -1,6 +1,4 @@
-import IconGithub from "~icons/simple-icons/github";
-import IconLinkedin from "~icons/simple-icons/linkedin";
-import type { Component } from "svelte";
+import type { SocialIconName } from "./icons";
 
 export const SITE_METADATA = {
   title: "Pedro Castro",
@@ -9,15 +7,19 @@ export const SITE_METADATA = {
   siteUrl: "https://peucastro.me",
 } as const;
 
-export const SOCIAL_LINKS = [
+export const SOCIAL_LINKS: ReadonlyArray<{
+  name: string;
+  href: string;
+  icon: SocialIconName;
+}> = [
   {
     name: "LinkedIn",
     href: "https://linkedin.com/in/peucastro",
-    Icon: IconLinkedin as Component,
+    icon: "linkedin",
   },
   {
     name: "GitHub",
     href: "https://github.com/peucastro",
-    Icon: IconGithub as Component,
+    icon: "github",
   },
 ];

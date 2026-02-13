@@ -1,5 +1,6 @@
 <script lang="ts">
   import { SITE_METADATA, SOCIAL_LINKS } from "$lib/config";
+  import { SOCIAL_ICONS } from "$lib/icons";
   import IconFileText from "~icons/lucide/file-text";
   import IconRss from "~icons/lucide/rss";
   import IconMail from "~icons/lucide/mail";
@@ -12,10 +13,10 @@
       href: "https://cv.peucastro.me/",
       Icon: IconFileText,
     },
-    ...SOCIAL_LINKS.map(({ name, href, Icon }) => ({
+    ...SOCIAL_LINKS.map(({ name, href, icon }) => ({
       name: name.toLowerCase(),
       href,
-      Icon,
+      Icon: SOCIAL_ICONS[icon],
     })),
     {
       name: "e-mail",

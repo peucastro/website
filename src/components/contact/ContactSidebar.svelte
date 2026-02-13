@@ -1,5 +1,6 @@
 <script lang="ts">
   import { SITE_METADATA, SOCIAL_LINKS } from "$lib/config";
+  import { SOCIAL_ICONS } from "$lib/icons";
   import IconMail from "~icons/lucide/mail";
 </script>
 
@@ -30,7 +31,7 @@
             class="contact-link group"
           >
             <div class="contact-icon-box">
-              <svelte:component this={social.Icon} width="16" />
+              <svelte:component this={SOCIAL_ICONS[social.icon]} width="16" />
             </div>
             <span
               class="text-fg-muted group-hover:text-primary font-mono text-sm transition-colors"
