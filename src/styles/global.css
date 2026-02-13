@@ -110,6 +110,15 @@
 }
 
 @layer utilities {
+  .form-input {
+    @apply bg-bg-soft border-border text-fg w-full border px-4 py-2 font-sans transition-colors;
+    @apply focus:border-primary placeholder:text-muted/50 focus:outline-none;
+  }
+
+  .form-label {
+    @apply text-muted mb-2 block font-mono text-xs tracking-widest uppercase;
+  }
+
   .prose {
     --tw-prose-body: var(--color-fg);
     --tw-prose-headings: var(--color-fg-strong);
