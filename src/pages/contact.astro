@@ -1,0 +1,22 @@
+---
+import PageHeader from "@components/common/PageHeader.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ContactForm from "@components/contact/ContactForm.svelte";
+import ContactSidebar from "@components/contact/ContactSidebar.svelte";
+---
+
+<BaseLayout title="contact">
+  <PageHeader title="contact me">
+    <p>Let's build something cool together.</p>
+  </PageHeader>
+
+  <div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-12">
+    <ContactSidebar />
+
+    <main
+      class="bg-bg-soft/30 border-border/50 rounded-sm border p-8 md:col-span-8"
+    >
+      <ContactForm />
+    </main>
+  </div>
+</BaseLayout>

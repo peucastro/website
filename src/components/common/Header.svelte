@@ -2,6 +2,7 @@
   import IconCode from "~icons/lucide/code-xml";
   import IconQuote from "~icons/lucide/text-quote";
   import IconUser from "~icons/lucide/user";
+  import IconSend from "~icons/lucide/send";
 
   interface Props {
     currentPath?: string;
@@ -13,6 +14,7 @@
     { name: "projects", href: "/projects", icon: IconCode },
     { name: "blog", href: "/blog", icon: IconQuote },
     { name: "about", href: "/about", icon: IconUser },
+    { name: "contact", href: "/contact", icon: IconSend },
   ];
 </script>
 
