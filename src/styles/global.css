@@ -119,6 +119,22 @@
     @apply text-muted mb-2 block font-mono text-xs tracking-widest uppercase;
   }
 
+  .contact-link {
+    @apply hover:text-primary flex items-center gap-3 transition-colors;
+  }
+
+  .contact-icon-box {
+    @apply bg-bg-soft border-border flex h-9 w-9 items-center justify-center rounded-xs border p-2 transition-colors;
+  }
+
+  .group:hover .contact-icon-box {
+    @apply border-primary/50;
+  }
+
+  .sidebar-section-title {
+    @apply text-muted mb-4 font-mono text-xs tracking-widest uppercase;
+  }
+
   .prose {
     --tw-prose-body: var(--color-fg);
     --tw-prose-headings: var(--color-fg-strong);
