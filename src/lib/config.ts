@@ -3,6 +3,7 @@ import type { SocialIconName } from "./icons";
 export const SITE_METADATA = {
   title: "Pedro Castro",
   description: "Informatics and computing engineering student portfolio",
+  author: "Pedro Castro",
   email: "falecompedroac@gmail.com",
   siteUrl: "https://peucastro.me",
 } as const;
