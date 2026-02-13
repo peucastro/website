@@ -67,5 +67,5 @@ let schema = data;
   type="application/ld+json"
   is:inline
   data-schema-type={type}
-  set:html={JSON.stringify(schema)}
+  set:html={JSON.stringify(schema).replace(/</g, "\\u003c")}
 />

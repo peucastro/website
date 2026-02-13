@@ -31,6 +31,7 @@ const articleSchema = {
   "@type": "BlogPosting" as const,
   headline: title,
   description: description,
+  image,
   url: Astro.url.href,
   datePublished: pubDate.toISOString(),
   dateModified: updatedDate ? updatedDate.toISOString() : pubDate.toISOString(),
