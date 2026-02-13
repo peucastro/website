@@ -26,7 +26,6 @@ export const SOCIAL_LINKS: ReadonlyArray<{
 ];
 
 export const personSchema = {
-  "@context": "https://schema.org" as const,
   "@type": "Person" as const,
   name: SITE_METADATA.author,
   url: SITE_METADATA.siteUrl,
