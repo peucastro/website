@@ -24,7 +24,6 @@ const canonicalURL = new URL(
   Astro.site,
 );
 const imageURL = new URL(image, Astro.url);
-const fullTitle = `${title} | ${SITE_METADATA.author}`;
 ---
 
 <meta charset="utf-8" />
@@ -51,14 +50,14 @@ const fullTitle = `${title} | ${SITE_METADATA.author}`;
 />
 
 <link rel="canonical" href={canonicalURL} />
-<title>{fullTitle}</title>
-<meta name="title" content={fullTitle} />
+<title>{title}</title>
+<meta name="title" content={title} />
 <meta name="description" content={description} />
 <meta name="author" content={SITE_METADATA.author} />
 
 <meta property="og:type" content={type} />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={fullTitle} />
+<meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:site_name" content={SITE_METADATA.author} />
 <meta property="og:locale" content="en_US" />
@@ -88,7 +87,7 @@ const fullTitle = `${title} | ${SITE_METADATA.author}`;
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={canonicalURL} />
-<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageURL} />
 

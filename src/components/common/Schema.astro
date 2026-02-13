@@ -4,7 +4,8 @@ interface PersonSchema {
   "@type": "Person";
   name: string;
   url: string;
-  sameAs?: string[];
+  sameAs?: ReadonlyArray<string>;
+  knowsAbout?: ReadonlyArray<string>;
   jobTitle?: string;
   description?: string;
   image?: string;

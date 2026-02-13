@@ -2,7 +2,8 @@ import type { SocialIconName } from "$lib/icons";
 
 export const SITE_METADATA = {
   title: "Pedro Castro",
-  description: "Informatics and computing engineering student portfolio",
+  description:
+    "Portfolio and personal website of Pedro Castro, an informatics and computing engineering student focused on software development, algorithms, open-source, and modern web technologies.",
   author: "Pedro Castro",
   email: "falecompedroac@gmail.com",
   siteUrl: "https://peucastro.me",
@@ -30,6 +31,13 @@ export const personSchema = {
   name: SITE_METADATA.author,
   url: SITE_METADATA.siteUrl,
   sameAs: SOCIAL_LINKS.map((link) => link.href),
+  knowsAbout: [
+    "Software Development",
+    "Algorithms",
+    "Data Structures",
+    "Web Development",
+    "Open Source",
+  ],
   jobTitle: "Informatics and Computing Engineering Student",
   description: SITE_METADATA.description,
   email: SITE_METADATA.email,
