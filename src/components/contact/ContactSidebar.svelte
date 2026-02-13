@@ -40,6 +40,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="contact-link group"
+            aria-label={social.name}
           >
             <div class="contact-icon-box">
               <svelte:component this={social.icon} width="16" />

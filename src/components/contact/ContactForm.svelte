@@ -4,6 +4,7 @@
 </script>
 
 <form action={actionUrl} method="POST" class="space-y-6">
+  <input type="text" name="_gotcha" style="display:none" />
   <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
     <div>
       <label for="name" class="form-label">Name</label>
@@ -29,7 +30,7 @@
 
   <button
     type="submit"
-    class="bg-primary text-bg-deep hover:bg-secondary w-full px-8 py-3 font-mono text-sm font-bold tracking-tighter uppercase transition md:w-auto"
+    class="bg-primary text-bg-deep hover:bg-secondary focus:ring-secondary w-full px-8 py-3 font-mono text-sm font-bold tracking-tighter uppercase transition focus:ring-2 focus:outline-none md:w-auto"
   >
     Send Message
   </button>
