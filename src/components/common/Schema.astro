@@ -22,6 +22,17 @@ interface WebSiteSchema {
   author: PersonSchema;
 }
 
+interface BreadcrumbSchema {
+  "@context": "https://schema.org";
+  "@type": "BreadcrumbList";
+  itemListElement: {
+    "@type": "ListItem";
+    position: number;
+    name: string;
+    item: string;
+  }[];
+}
+
 interface ArticleSchema {
   "@context": "https://schema.org";
   "@type": "BlogPosting" | "Article";
@@ -43,8 +54,8 @@ interface ArticleSchema {
 }
 
 interface Props {
-  type: "person" | "website" | "article";
-  data: PersonSchema | WebSiteSchema | ArticleSchema;
+  type: "person" | "website" | "article" | "breadcrumb";
+  data: PersonSchema | WebSiteSchema | ArticleSchema | BreadcrumbSchema;
 }
 
 const { data } = Astro.props;

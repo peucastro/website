@@ -2,13 +2,13 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Schema from "@components/common/Schema.astro";
 import TagBadge from "@components/ui/TagBadge.svelte";
-import { personSchema } from "$lib/config";
+import { personSchema } from "$lib/jsonld";
 
 interface Props {
   title: string;
   description: string;
   pubDate: Date;
-  updatedDate?: Date;
+  updatedDate?: Date | undefined;
   label: string;
   tags?: string[];
   category?: string;

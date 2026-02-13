@@ -25,20 +25,3 @@ export const SOCIAL_LINKS: ReadonlyArray<{
     icon: "github",
   },
 ];
-
-export const personSchema = {
-  "@type": "Person" as const,
-  name: SITE_METADATA.author,
-  url: SITE_METADATA.siteUrl,
-  sameAs: SOCIAL_LINKS.map((link) => link.href),
-  knowsAbout: [
-    "Software Development",
-    "Algorithms",
-    "Data Structures",
-    "Web Development",
-    "Open Source",
-  ],
-  jobTitle: "Informatics and Computing Engineering Student",
-  description: SITE_METADATA.description,
-  email: SITE_METADATA.email,
-} as const;
