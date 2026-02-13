@@ -6,8 +6,8 @@ interface Props {
   description: string;
   image?: string;
   type?: "website" | "article";
-  pubDate?: Date;
-  updatedDate?: Date;
+  pubDate?: Date | undefined;
+  updatedDate?: Date | undefined;
 }
 
 const {
@@ -23,7 +23,7 @@ const canonicalURL = new URL(
   Astro.url.pathname.replace(/\/$/, "") + "/",
   Astro.site,
 );
-const imageURL = new URL(image, Astro.url);
+const imageURL = new URL(image, Astro.site);
 ---
 
 <meta charset="utf-8" />
@@ -56,13 +56,13 @@ const imageURL = new URL(image, Astro.url);
 <meta name="author" content={SITE_METADATA.author} />
 
 <meta property="og:type" content={type} />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:site_name" content={SITE_METADATA.author} />
 <meta property="og:locale" content="en_US" />
 
-<meta property="og:image" content={imageURL} />
+<meta property="og:image" content={imageURL.href} />
 <meta
   property="og:image:alt"
   content={`Cover image for ${title} | Portfolio of ${SITE_METADATA.author}`}
@@ -89,7 +89,7 @@ const imageURL = new URL(image, Astro.url);
 <meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={imageURL} />
+<meta name="twitter:image" content={imageURL.href} />
 
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link

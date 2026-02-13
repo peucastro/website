@@ -11,12 +11,18 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  type?: "website" | "article";
+  pubDate?: Date | undefined;
+  updatedDate?: Date | undefined;
 }
 
 const {
   title,
   description = SITE_METADATA.description,
   image = "/og-default.png",
+  type = "website",
+  pubDate,
+  updatedDate,
 } = Astro.props;
 
 const fullTitle = title
@@ -38,7 +44,14 @@ const websiteSchema = {
 
 <html lang="en" dir="ltr">
   <head>
-    <BaseHead title={fullTitle} description={description} image={image} />
+    <BaseHead
+      title={fullTitle}
+      description={description}
+      image={image}
+      type={type}
+      pubDate={pubDate}
+      updatedDate={updatedDate}
+    />
     <Schema type="website" data={websiteSchema} />
     <Schema type="breadcrumb" data={breadcrumbSchema} />
 

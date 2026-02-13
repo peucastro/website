@@ -46,7 +46,14 @@ const articleSchema = {
 };
 ---
 
-<BaseLayout title={title} description={description} image={image}>
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  type="article"
+  pubDate={pubDate}
+  updatedDate={updatedDate}
+>
   <Schema type="article" data={articleSchema} />
 
   <article class="mx-auto max-w-3xl">
