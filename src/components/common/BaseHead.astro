@@ -14,7 +14,7 @@ interface Props {
 const {
   title,
   description,
-  image = "/og-default.png",
+  image = "/og-image.png",
   type = "website",
   pubDate,
   updatedDate,
@@ -22,7 +22,7 @@ const {
 
 const siteUrl = (Astro.site ?? SITE_METADATA.siteUrl).toString();
 const canonicalURL = normalizeUrl(Astro.url.pathname, siteUrl);
-const imageURL = new URL(image, Astro.site);
+const imageURL = new URL(image, siteUrl);
 ---
 
 <meta charset="utf-8" />
@@ -95,5 +95,5 @@ const imageURL = new URL(image, Astro.site);
   rel="alternate"
   type="application/rss+xml"
   title={`${SITE_METADATA.author} - RSS Feed`}
-  href={new URL("rss.xml", Astro.site)}
+  href={new URL("rss.xml", siteUrl)}
 />

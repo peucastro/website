@@ -19,7 +19,7 @@ interface Props {
 const {
   title,
   description = SITE_METADATA.description,
-  image = "/og-default.png",
+  image,
   type = "website",
   pubDate,
   updatedDate,
@@ -50,7 +50,7 @@ const websiteSchema = {
     <BaseHead
       title={fullTitle}
       description={description}
-      image={image}
+      image={image ?? "/og-image.png"}
       type={type}
       pubDate={pubDate}
       updatedDate={updatedDate}
