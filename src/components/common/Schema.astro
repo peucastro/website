@@ -1,0 +1,71 @@
+---
+interface PersonSchema {
+  "@context"?: "https://schema.org";
+  "@type": "Person";
+  name: string;
+  url: string;
+  sameAs?: ReadonlyArray<string>;
+  knowsAbout?: ReadonlyArray<string>;
+  jobTitle?: string;
+  description?: string;
+  image?: string;
+  email?: string;
+}
+
+interface WebSiteSchema {
+  "@context": "https://schema.org";
+  "@type": "WebSite";
+  name: string;
+  url: string;
+  description: string;
+  inLanguage: string;
+  author: PersonSchema;
+}
+
+interface BreadcrumbSchema {
+  "@context": "https://schema.org";
+  "@type": "BreadcrumbList";
+  itemListElement: {
+    "@type": "ListItem";
+    position: number;
+    name: string;
+    item: string;
+  }[];
+}
+
+interface ArticleSchema {
+  "@context": "https://schema.org";
+  "@type": "BlogPosting" | "Article";
+  headline: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified?: string;
+  author: PersonSchema;
+  publisher: PersonSchema;
+  image?: string;
+  keywords?: string[];
+  articleSection?: string;
+  inLanguage: string;
+  mainEntityOfPage: {
+    "@type": "WebPage";
+    "@id": string;
+  };
+}
+
+interface Props {
+  type: "person" | "website" | "article" | "breadcrumb";
+  data: PersonSchema | WebSiteSchema | ArticleSchema | BreadcrumbSchema;
+}
+
+const { type, data } = Astro.props;
+
+let schema = data;
+---
+
+<script
+  type="application/ld+json"
+  is:inline
+  data-schema-type={type}
+  set:html={JSON.stringify(schema).replace(/</g, "\\u003c")}
+/>

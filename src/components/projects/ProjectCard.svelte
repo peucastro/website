@@ -21,7 +21,7 @@
       <h3
         class="text-fg-strong group-hover:text-primary mb-2 text-lg font-bold transition-colors"
       >
-        <a href={`/projects/${project.slug}`} class="focus:outline-none">
+        <a href={`/projects/${project.slug}/`} class="focus:outline-none">
           <span class="absolute inset-0 z-0" aria-hidden="true"></span>
           {project.title}
         </a>

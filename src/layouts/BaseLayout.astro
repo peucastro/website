@@ -1,29 +1,62 @@
 ---
 import "@styles/global.css";
 import BaseHead from "@components/common/BaseHead.astro";
+import Schema from "@components/common/Schema.astro";
 import Footer from "@components/common/Footer.svelte";
 import Header from "@components/common/Header.svelte";
+import { SITE_METADATA } from "$lib/config";
+import { personSchema, buildBreadcrumbs } from "$lib/jsonld";
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
+  type?: "website" | "article";
+  pubDate?: Date | undefined;
+  updatedDate?: Date | undefined;
 }
 
 const {
   title,
-  description = "personal website and portfolio.",
+  description = SITE_METADATA.description,
   image,
+  type = "website",
+  pubDate,
+  updatedDate,
 } = Astro.props;
 
-const siteName = "pedro castro";
-const fullTitle = title ? `${title} | ${siteName}` : siteName;
+const fullTitle = title
+  ? `${title} | ${SITE_METADATA.author}`
+  : SITE_METADATA.title;
 const currentPath = Astro.url.pathname;
+
+const breadcrumbSchema = buildBreadcrumbs(
+  currentPath,
+  title ?? SITE_METADATA.title,
+);
+const websiteSchema = {
+  "@context": "https://schema.org" as const,
+  "@type": "WebSite" as const,
+  name: SITE_METADATA.title,
+  url: SITE_METADATA.siteUrl,
+  description: SITE_METADATA.description,
+  inLanguage: "en-US",
+  author: personSchema,
+};
 ---
 
 <html lang="en" dir="ltr">
   <head>
-    <BaseHead title={fullTitle} description={description} image={image} />
+    <BaseHead
+      title={fullTitle}
+      description={description}
+      image={image ?? "/og-image.png"}
+      type={type}
+      pubDate={pubDate}
+      updatedDate={updatedDate}
+    />
+    <Schema type="website" data={websiteSchema} />
+    <Schema type="breadcrumb" data={breadcrumbSchema} />
 
     <script is:inline>
       (function () {

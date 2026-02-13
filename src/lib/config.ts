@@ -1,8 +1,10 @@
-import type { SocialIconName } from "./icons";
+import type { SocialIconName } from "$lib/icons";
 
 export const SITE_METADATA = {
   title: "Pedro Castro",
-  description: "Informatics and computing engineering student portfolio",
+  description:
+    "Portfolio and personal website of Pedro Castro, an informatics and computing engineering student focused on software development, algorithms, open-source, and modern web technologies.",
+  author: "Pedro Castro",
   email: "falecompedroac@gmail.com",
   siteUrl: "https://peucastro.me",
 } as const;

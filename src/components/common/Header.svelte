@@ -11,10 +11,10 @@
   let { currentPath = "/" }: Props = $props();
 
   const links = [
-    { name: "projects", href: "/projects", icon: IconCode },
-    { name: "blog", href: "/blog", icon: IconQuote },
-    { name: "about", href: "/about", icon: IconUser },
-    { name: "contact", href: "/contact", icon: IconSend },
+    { name: "projects", href: "/projects/", icon: IconCode },
+    { name: "blog", href: "/blog/", icon: IconQuote },
+    { name: "about", href: "/about/", icon: IconUser },
+    { name: "contact", href: "/contact/", icon: IconSend },
   ];
 </script>
 

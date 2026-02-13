@@ -7,6 +7,7 @@ import { SITE_METADATA } from "./src/lib/config.ts";
 
 export default defineConfig({
   site: SITE_METADATA.siteUrl,
+  trailingSlash: "always",
   output: "static",
   prefetch: {
     prefetchAll: true,
