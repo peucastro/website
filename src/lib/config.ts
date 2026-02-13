@@ -24,3 +24,14 @@ export const SOCIAL_LINKS: ReadonlyArray<{
     icon: "github",
   },
 ];
+
+export const personSchema = {
+  "@context": "https://schema.org" as const,
+  "@type": "Person" as const,
+  name: SITE_METADATA.author,
+  url: SITE_METADATA.siteUrl,
+  sameAs: SOCIAL_LINKS.map((link) => link.href),
+  jobTitle: "Informatics and Computing Engineering Student",
+  description: SITE_METADATA.description,
+  email: SITE_METADATA.email,
+} as const;
