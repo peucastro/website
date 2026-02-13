@@ -1,5 +1,6 @@
 ---
 import { SITE_METADATA } from "$lib/config";
+import { normalizeUrl } from "$lib/utils";
 
 interface Props {
   title: string;
@@ -19,10 +20,8 @@ const {
   updatedDate,
 } = Astro.props;
 
-const canonicalURL = new URL(
-  Astro.url.pathname.replace(/\/$/, "") + "/",
-  Astro.site,
-);
+const siteUrl = (Astro.site ?? SITE_METADATA.siteUrl).toString();
+const canonicalURL = normalizeUrl(Astro.url.pathname, siteUrl);
 const imageURL = new URL(image, Astro.site);
 ---
 

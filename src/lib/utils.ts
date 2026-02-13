@@ -11,3 +11,7 @@ export function formatDate(date: Date, includeDay = false) {
     ...(includeDay && { day: "numeric" }),
   });
 }
+
+export function normalizeUrl(pathname: string, site: string): string {
+  return new URL(pathname.replace(/\/$/, "") + "/", site).href;
+}
