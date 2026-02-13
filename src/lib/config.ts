@@ -1,4 +1,4 @@
-import type { SocialIconName } from "./icons";
+import type { SocialIconName } from "$lib/icons";
 
 export const SITE_METADATA = {
   title: "Pedro Castro",

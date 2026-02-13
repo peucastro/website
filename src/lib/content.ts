@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import type { Post, Project } from "./types";
+import type { Post, Project } from "$lib/types";
 
 type CollectionMap = {
   blog: Post;
