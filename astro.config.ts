@@ -1,4 +1,3 @@
-import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
@@ -30,10 +29,6 @@ export default defineConfig({
       }),
     ],
   },
-
-  adapter: cloudflare({
-    imageService: "compile",
-  }),
 
   markdown: {
     shikiConfig: {
