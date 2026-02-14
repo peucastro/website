@@ -1,3 +1,4 @@
+import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
@@ -9,12 +10,15 @@ export default defineConfig({
   site: SITE_METADATA.siteUrl,
   trailingSlash: "always",
   output: "static",
+
   prefetch: {
     prefetchAll: true,
   },
+
   experimental: {
     clientPrerender: true,
   },
+
   integrations: [svelte(), sitemap()],
 
   vite: {
@@ -26,6 +30,10 @@ export default defineConfig({
       }),
     ],
   },
+
+  adapter: cloudflare({
+    imageService: "compile",
+  }),
 
   markdown: {
     shikiConfig: {
