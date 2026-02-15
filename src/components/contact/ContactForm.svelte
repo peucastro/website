@@ -1,10 +1,44 @@
 <script lang="ts">
   const actionUrl = "https://api.web3forms.com/submit";
   const accessKey = "dd5dbe41-c942-4f57-88b9-4e6c1fbf1655";
+
+  let status = "";
+  let loading = false;
+  let isSuccess = false;
+
+  async function handleSubmit(event: Event) {
+    event.preventDefault();
+    status = "Sending...";
+    loading = true;
+    isSuccess = false;
+
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(actionUrl, {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        isSuccess = true;
+        status = "Success! Your message has been sent.";
+        form.reset();
+      } else {
+        isSuccess = false;
+        status = "Something went wrong. Please try again.";
+      }
+    } catch {
+      status = "Network error. Please check your connection.";
+    } finally {
+      loading = false;
+    }
+  }
 </script>
 
-<form action={actionUrl} method="POST" class="space-y-6">
-  <input type="text" name="_gotcha" style="display:none" />
+<form onsubmit={handleSubmit} class="space-y-6">
   <input type="hidden" name="access_key" value={accessKey} />
   <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
     <div>
@@ -31,8 +65,19 @@
 
   <button
     type="submit"
-    class="bg-primary text-bg-deep hover:bg-secondary focus:ring-secondary w-full px-8 py-3 font-mono text-sm font-bold tracking-tighter uppercase transition focus:ring-2 focus:outline-none md:w-auto"
+    disabled={loading}
+    class="bg-primary text-bg-deep hover:bg-secondary w-full px-8 py-3 font-mono text-sm font-bold uppercase transition disabled:opacity-50 md:w-auto"
   >
-    Send Message
+    {loading ? "Sending..." : "Send Message"}
   </button>
+
+  {#if status}
+    <p
+      class="mt-4 font-mono text-sm"
+      class:text-success={isSuccess}
+      class:text-danger={!isSuccess}
+    >
+      {status}
+    </p>
+  {/if}
 </form>
