@@ -66,7 +66,7 @@
   <button
     type="submit"
     disabled={loading}
-    class="bg-primary text-bg-deep hover:bg-secondary w-full px-8 py-3 font-mono text-sm font-bold uppercase transition disabled:opacity-50 md:w-auto"
+    class="bg-primary text-bg-deep hover:bg-secondary focus:ring-secondary w-full px-8 py-3 font-mono text-sm font-bold uppercase transition focus:ring-2 focus:outline-none disabled:opacity-50 md:w-auto"
   >
     {loading ? "Sending..." : "Send Message"}
   </button>
@@ -76,6 +76,7 @@
       class="mt-4 font-mono text-sm"
       class:text-success={isSuccess}
       class:text-danger={!isSuccess}
+      aria-live="polite"
     >
       {status}
     </p>
