@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { SITE_METADATA } from "$lib/config";
-
-  const actionUrl = `https://formsubmit.io/send/${SITE_METADATA.email}`;
+  const actionUrl = "https://api.web3forms.com/submit";
+  const accessKey = "dd5dbe41-c942-4f57-88b9-4e6c1fbf1655";
 </script>
 
 <form action={actionUrl} method="POST" class="space-y-6">
   <input type="text" name="_gotcha" style="display:none" />
+  <input type="hidden" name="access_key" value={accessKey} />
   <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
     <div>
       <label for="name" class="form-label">Name</label>
