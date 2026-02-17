@@ -4,5 +4,32 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="about">
-  <PageHeader title="about me"> <p>...</p> </PageHeader>
+  <PageHeader title="about me">
+    <p class="text-lg">
+      Hey there! I'm <strong>Pedro Castro</strong>, an Informatics and Computing
+      Engineering student at the <strong
+        >Faculty of Engineering of the University of Porto (FEUP)</strong
+      >.
+    </p>
+  </PageHeader>
+
+  <section class="mb-12 space-y-8">
+    <p>
+      I enjoy building reliable software and understanding how systems work. I
+      care about <strong>clean design</strong>,
+      <strong>correctness</strong>, and <strong>maintainable code</strong>. My
+      main interests are in software engineering, system design, and backend
+      development.
+    </p>
+    <p>
+      Currently, I'm a Project Manager and developer at <a
+        href="https://niaefeup.pt"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="decoration-primary/30 hover:decoration-primary underline transition-colors"
+        >NIAEFEUP</a
+      >, where I help design and build tools and platforms that improve the
+      academic life of students.
+    </p>
+  </section>
 </BaseLayout>
