@@ -6,7 +6,7 @@ export const SITE_METADATA = {
     "Portfolio and personal website of Pedro Castro, an informatics and computing engineering student focused on software development, algorithms, open-source, and modern web technologies.",
   author: "Pedro Castro",
   email: "me@peucastro.com",
-  siteUrl: "https://peucastro.me",
+  siteUrl: "https://peucastro.com",
 } as const;
 
 export const SOCIAL_LINKS: ReadonlyArray<{

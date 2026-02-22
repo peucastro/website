@@ -16,4 +16,4 @@ User-agent: PerplexityBot
 User-agent: YouBot
 Disallow: /
 
-Sitemap: https://peucastro.me/sitemap-index.xml
+Sitemap: https://peucastro.com/sitemap-index.xml

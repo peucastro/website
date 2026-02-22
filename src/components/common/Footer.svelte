@@ -10,7 +10,7 @@
   const socials = [
     {
       name: "curriculum vitae",
-      href: "https://cv.peucastro.me/",
+      href: "https://cv.peucastro.com/",
       Icon: IconFileText,
     },
     ...SOCIAL_LINKS.map(({ name, href, icon }) => ({
