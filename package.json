@@ -30,7 +30,7 @@
     "@fontsource/ibm-plex-mono": "^5.2.7",
     "astro": "^5.18.1",
     "sharp": "^0.34.5",
-    "svelte": "^5.53.11"
+    "svelte": "^5.54.0"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.7",
