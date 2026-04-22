@@ -16,7 +16,7 @@ async function getSortedCollection<T extends keyof CollectionMap>(
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .map((entry) => ({
       ...entry.data,
-      slug: entry.slug,
+      slug: entry.id,
     })) as CollectionMap[T][];
 
   return limit !== undefined ? sorted.slice(0, limit) : sorted;

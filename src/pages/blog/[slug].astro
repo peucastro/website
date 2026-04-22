@@ -1,12 +1,12 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import ContentLayout from "@layouts/ContentLayout.astro";
 import { formatDate } from "$lib/utils";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 const { pubDate, updatedDate } = entry.data;
 const isUpdated = updatedDate && updatedDate.getTime() > pubDate.getTime();
 ---

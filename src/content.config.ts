@@ -1,4 +1,5 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 
 const uniqueStringArray = z
   .array(z.string())
@@ -28,8 +29,8 @@ export const projectSchema = z.object({
   pubDate: z.coerce.date(),
   tags: uniqueStringArray,
   image: z.string(),
-  liveUrl: z.string().url().optional(),
-  repositoryUrl: z.string().url().optional(),
+  liveUrl: z.url().optional(),
+  repositoryUrl: z.url().optional(),
   status: z.enum(["active", "completed", "archived"]).default("completed"),
   technologies: uniqueStringArray,
 });

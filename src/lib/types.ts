@@ -1,5 +1,5 @@
-import type { z } from "astro:content";
-import type { blogSchema, projectSchema } from "@content/config";
+import type { z } from "astro/zod";
+import type { blogSchema, projectSchema } from "src/content.config";
 
 type WithSlug<T> = T & { slug: string };
 
