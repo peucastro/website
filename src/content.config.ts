@@ -1,4 +1,5 @@
 import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const uniqueStringArray = z
@@ -36,6 +37,15 @@ export const projectSchema = z.object({
 });
 
 export const collections = {
-  blog: defineCollection({ type: "content", schema: blogSchema }),
-  projects: defineCollection({ type: "content", schema: projectSchema }),
+  blog: defineCollection({
+    loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
+    schema: blogSchema,
+  }),
+  projects: defineCollection({
+    loader: glob({
+      pattern: "**/[^_]*.{md,mdx}",
+      base: "./src/content/projects",
+    }),
+    schema: projectSchema,
+  }),
 };
