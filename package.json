@@ -28,16 +28,16 @@
     "@astrojs/svelte": "^8.1.2",
     "@fontsource-variable/ibm-plex-sans": "^5.2.8",
     "@fontsource/ibm-plex-mono": "^5.2.7",
-    "astro": "^6.4.2",
+    "astro": "^6.4.4",
     "sharp": "^0.34.5",
-    "svelte": "^5.56.0"
+    "svelte": "^5.56.2"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
     "@astrojs/ts-plugin": "^1.10.9",
     "@eslint/js": "^10.0.1",
     "@iconify-json/lucide": "^1.2.111",
-    "@iconify-json/simple-icons": "^1.2.84",
+    "@iconify-json/simple-icons": "^1.2.85",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.3.0",
     "astro-eslint-parser": "^1.4.0",
@@ -50,11 +50,11 @@
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-svelte": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.8.0",
-    "svelte-check": "^4.4.8",
-    "svelte-eslint-parser": "^1.7.0",
+    "svelte-check": "^4.6.0",
+    "svelte-eslint-parser": "^1.8.0",
     "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.60.0",
+    "typescript-eslint": "^8.60.1",
     "unplugin-icons": "^23.0.1"
   }
 }
