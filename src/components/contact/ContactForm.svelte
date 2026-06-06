@@ -2,9 +2,9 @@
   const actionUrl = "https://api.web3forms.com/submit";
   const accessKey = "dd5dbe41-c942-4f57-88b9-4e6c1fbf1655";
 
-  let status = "";
-  let loading = false;
-  let isSuccess = false;
+  let status = $state("");
+  let loading = $state(false);
+  let isSuccess = $state(false);
 
   async function handleSubmit(event: Event) {
     event.preventDefault();
