@@ -23,6 +23,7 @@
     <h3 class="sidebar-section-title">Socials</h3>
     <ul class="space-y-2">
       {#each SOCIAL_LINKS as social (social.name)}
+        {@const Icon = SOCIAL_ICONS[social.icon]}
         <li>
           <a
             href={social.href}
@@ -31,7 +32,7 @@
             class="contact-link group"
           >
             <div class="contact-icon-box">
-              <svelte:component this={SOCIAL_ICONS[social.icon]} width="16" />
+              <Icon width="16" />
             </div>
             <span
               class="text-fg-muted group-hover:text-primary font-mono text-sm transition-colors"
