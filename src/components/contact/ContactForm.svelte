@@ -59,8 +59,7 @@
       name="message"
       rows="5"
       required
-      class="form-input resize-none"
-    ></textarea>
+      class="form-input resize-none"></textarea>
   </div>
 
   <button
