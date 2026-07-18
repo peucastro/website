@@ -30,16 +30,16 @@
     "@fontsource/ibm-plex-mono": "^5.2.7",
     "astro": "^6.4.8",
     "sharp": "^0.35.3",
-    "svelte": "^5.56.4"
+    "svelte": "^5.56.6"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
     "@astrojs/ts-plugin": "^1.10.10",
     "@eslint/js": "^10.0.1",
-    "@iconify-json/lucide": "^1.2.116",
-    "@iconify-json/simple-icons": "^1.2.89",
+    "@iconify-json/lucide": "^1.2.117",
+    "@iconify-json/simple-icons": "^1.2.90",
     "@tailwindcss/typography": "^0.5.20",
-    "@tailwindcss/vite": "^4.3.2",
+    "@tailwindcss/vite": "^4.3.3",
     "astro-eslint-parser": "^2.1.0",
     "eslint": "^10.7.0",
     "eslint-config-prettier": "^10.1.8",
@@ -49,12 +49,12 @@
     "prettier": "^3.9.5",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-svelte": "^4.1.1",
-    "prettier-plugin-tailwindcss": "^0.8.0",
-    "svelte-check": "^4.7.2",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "svelte-check": "^4.7.3",
     "svelte-eslint-parser": "^1.8.0",
-    "tailwindcss": "^4.3.2",
+    "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.63.0",
+    "typescript-eslint": "^8.64.0",
     "unplugin-icons": "^23.0.1"
   }
 }
