@@ -40,7 +40,7 @@
     "@iconify-json/simple-icons": "^1.2.90",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
-    "astro-eslint-parser": "^2.1.0",
+    "astro-eslint-parser": "^3.0.0",
     "eslint": "^10.7.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^2.1.1",
