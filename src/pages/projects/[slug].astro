@@ -2,9 +2,7 @@
 import { getCollection, render, type CollectionEntry } from "astro:content";
 
 import ContentLayout from "@layouts/ContentLayout.astro";
-import IconLink from "@components/ui/IconLink.svelte";
-import IconGithub from "~icons/simple-icons/github";
-import IconExternal from "~icons/lucide/external-link";
+import IconLink from "@components/ui/IconLink.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -40,15 +38,19 @@ const { technologies, liveUrl, repositoryUrl } = entry.data;
       {
         repositoryUrl && (
           <IconLink
-            href={repositoryUrl}
-            icon={IconGithub}
+            href={repositoryUrl.toString()}
             label="Source Code"
+            name="simple-icons:github"
           />
         )
       }
       {
         liveUrl && (
-          <IconLink href={liveUrl} icon={IconExternal} label="Live Demo" />
+          <IconLink
+            href={liveUrl.toString()}
+            label="Live Demo"
+            name="lucide:external-link"
+          />
         )
       }
     </div>
