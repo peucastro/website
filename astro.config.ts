@@ -1,8 +1,7 @@
 import sitemap from "@astrojs/sitemap";
-import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
-import Icons from "unplugin-icons/vite";
+import icon from "astro-icon";
 import { SITE_METADATA } from "./src/lib/config.ts";
 
 export default defineConfig({
@@ -18,16 +17,10 @@ export default defineConfig({
     clientPrerender: true,
   },
 
-  integrations: [svelte(), sitemap()],
+  integrations: [icon(), sitemap()],
 
   vite: {
-    plugins: [
-      tailwindcss(),
-      Icons({
-        compiler: "svelte",
-        autoInstall: true,
-      }),
-    ],
+    plugins: [tailwindcss()],
   },
 
   markdown: {

@@ -1,0 +1,61 @@
+---
+import ThemeToggle from "@components/common/ThemeToggle.astro";
+import { Icon } from "astro-icon/components";
+import { SITE_METADATA, SOCIAL_LINKS } from "$lib/config";
+
+const currentYear = new Date().getFullYear();
+
+const socialIconName = {
+  github: "simple-icons:github",
+  linkedin: "simple-icons:linkedin",
+} as const satisfies Record<(typeof SOCIAL_LINKS)[number]["icon"], string>;
+
+const socials = [
+  {
+    name: "curriculum vitae",
+    href: "https://cv.peucastro.com/",
+    icon: "lucide:file-text",
+  },
+  ...SOCIAL_LINKS.map(({ name, href, icon }) => ({
+    name: name.toLowerCase(),
+    href,
+    icon: socialIconName[icon],
+  })),
+  {
+    name: "e-mail",
+    href: `mailto:${SITE_METADATA.email}`,
+    icon: "lucide:mail",
+  },
+  {
+    name: "rss",
+    href: `${SITE_METADATA.siteUrl}/rss.xml`,
+    icon: "lucide:rss",
+  },
+];
+---
+
+<footer class="bg-bg-deep mt-32 border-t py-12 font-mono text-xs">
+  <div
+    class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 md:flex-row"
+  >
+    <p class="text-fg-muted">
+      &copy; {currentYear} // Pedro Castro
+    </p>
+    <nav class="flex items-center gap-6">
+      <ThemeToggle />
+      {
+        socials.map(({ name, href, icon }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-muted hover:text-primary transition-colors"
+            aria-label={name}
+          >
+            <Icon name={icon} class="h-[1.2em] w-[1.2em]" />
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</footer>

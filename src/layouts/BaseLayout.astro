@@ -2,8 +2,8 @@
 import "@styles/global.css";
 import BaseHead from "@components/common/BaseHead.astro";
 import Schema from "@components/common/Schema.astro";
-import Footer from "@components/common/Footer.svelte";
-import Header from "@components/common/Header.svelte";
+import Footer from "@components/common/Footer.astro";
+import Header from "@components/common/Header.astro";
 import { SITE_METADATA } from "$lib/config";
 import { personSchema, buildBreadcrumbs } from "$lib/jsonld";
 
@@ -91,6 +91,6 @@ const websiteSchema = {
     <main class="mx-auto mt-12 mb-12 min-h-screen max-w-5xl px-6">
       <slot />
     </main>
-    <Footer client:visible />
+    <Footer />
   </body>
 </html>
