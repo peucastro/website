@@ -3,8 +3,6 @@ import * as astroParser from "astro-eslint-parser";
 import eslintPluginAstro from "eslint-plugin-astro";
 import globals from "globals";
 import prettierConfig from "eslint-config-prettier";
-import svelteParser from "svelte-eslint-parser";
-import sveltePlugin from "eslint-plugin-svelte";
 import tseslint from "typescript-eslint";
 
 export default [
@@ -15,7 +13,6 @@ export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
-  ...sveltePlugin.configs["flat/recommended"],
 
   {
     languageOptions: {
@@ -33,16 +30,6 @@ export default [
       parserOptions: {
         parser: tseslint.parser,
         extraFileExtensions: [".astro"],
-      },
-    },
-  },
-
-  {
-    files: ["**/*.svelte"],
-    languageOptions: {
-      parser: svelteParser,
-      parserOptions: {
-        parser: tseslint.parser,
       },
     },
   },

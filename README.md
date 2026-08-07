@@ -3,7 +3,7 @@
 ![ci](https://img.shields.io/github/actions/workflow/status/peucastro/website/ci.yaml?label=ci)
 ![license](https://img.shields.io/github/license/peucastro/website?color=blue)
 
-My personal website, built using [Astro](https://astro.build/) and [Svelte](https://svelte.dev/).
+My personal website, built using [Astro](https://astro.build/).
 
 ## Running locally
 
