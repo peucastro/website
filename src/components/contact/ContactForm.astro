@@ -1,0 +1,128 @@
+---
+const actionUrl = "https://api.web3forms.com/submit";
+const accessKey = "dd5dbe41-c942-4f57-88b9-4e6c1fbf1655";
+---
+
+<form data-contact-form action={actionUrl} method="POST" class="space-y-6">
+  <input type="hidden" name="access_key" value={accessKey} />
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div>
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        autocomplete="name"
+        class="form-input"
+      />
+    </div>
+
+    <div>
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        autocomplete="email"
+        class="form-input"
+      />
+    </div>
+  </div>
+
+  <div>
+    <label for="message" class="form-label">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      required
+      class="form-input resize-none"></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="bg-primary text-bg-deep hover:bg-secondary focus:ring-secondary w-full px-8 py-3 font-mono text-sm font-bold uppercase transition focus:ring-2 focus:outline-none disabled:opacity-50 md:w-auto"
+  >
+    Send Message
+  </button>
+
+  <p
+    data-contact-form-status
+    class="mt-4 font-mono text-sm"
+    aria-live="polite"
+    hidden
+  >
+  </p>
+</form>
+
+<script>
+  function setupForm(form: HTMLFormElement) {
+    const submitButton = form.querySelector(
+      'button[type="submit"]',
+    ) as HTMLButtonElement | null;
+    const statusEl = form.querySelector(
+      "[data-contact-form-status]",
+    ) as HTMLElement | null;
+    if (!submitButton || !statusEl) return;
+
+    const button = submitButton;
+    const status = statusEl;
+
+    function setStatus(message: string, isSuccess: boolean, el: HTMLElement) {
+      el.hidden = false;
+      el.textContent = message;
+      el.classList.toggle("text-success", isSuccess);
+      el.classList.toggle("text-danger", !isSuccess);
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setStatus("Sending...", false, status);
+      button.disabled = true;
+      button.textContent = "Sending...";
+      form.setAttribute("aria-busy", "true");
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!response.ok) {
+          setStatus("Something went wrong. Please try again.", false, status);
+          return;
+        }
+
+        const result = (await response.json()) as { success?: boolean };
+
+        if (!result.success) {
+          setStatus("Something went wrong. Please try again.", false, status);
+          return;
+        }
+
+        setStatus("Success! Your message has been sent.", true, status);
+        form.reset();
+      } catch {
+        setStatus(
+          "Network error. Please check your connection.",
+          false,
+          status,
+        );
+      } finally {
+        button.disabled = false;
+        button.textContent = "Send Message";
+        form.removeAttribute("aria-busy");
+      }
+    });
+  }
+
+  for (const form of document.querySelectorAll<HTMLFormElement>(
+    "[data-contact-form]",
+  )) {
+    setupForm(form);
+  }
+</script>

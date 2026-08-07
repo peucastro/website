@@ -1,7 +1,7 @@
 ---
 import PageHeader from "@components/common/PageHeader.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import ContactForm from "@components/contact/ContactForm.svelte";
+import ContactForm from "@components/contact/ContactForm.astro";
 import ContactSidebar from "@components/contact/ContactSidebar.astro";
 ---
 
@@ -16,7 +16,7 @@ import ContactSidebar from "@components/contact/ContactSidebar.astro";
     <main
       class="bg-bg-soft/30 border-border/50 rounded-sm border p-8 md:col-span-8"
     >
-      <ContactForm client:load />
+      <ContactForm />
     </main>
   </div>
 </BaseLayout>
