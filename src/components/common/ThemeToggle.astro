@@ -1,0 +1,51 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  class="text-muted hover:text-primary invisible transition-colors"
+  aria-label="Toggle theme"
+>
+  <Icon name="lucide:sun" data-theme-icon="sun" class="h-[1.2em] w-[1.2em]" />
+  <Icon name="lucide:moon" data-theme-icon="moon" class="h-[1.2em] w-[1.2em]" />
+</button>
+
+<script>
+  (function () {
+    const button = document.querySelector("[data-theme-toggle]");
+    if (!button) return;
+
+    const sun = button.querySelector(
+      "[data-theme-icon='sun']",
+    ) as HTMLElement | null;
+    const moon = button.querySelector(
+      "[data-theme-icon='moon']",
+    ) as HTMLElement | null;
+    if (!sun || !moon) return;
+
+    const isLight = document.documentElement.classList.contains("light");
+    if (isLight) {
+      sun.removeAttribute("hidden");
+      moon.setAttribute("hidden", "");
+    } else {
+      sun.setAttribute("hidden", "");
+      moon.removeAttribute("hidden");
+    }
+    button.classList.remove("invisible");
+
+    button.addEventListener("click", () => {
+      const next = !document.documentElement.classList.contains("light");
+      document.documentElement.classList.toggle("light", next);
+      localStorage.setItem("theme", next ? "light" : "dark");
+      if (next) {
+        sun.removeAttribute("hidden");
+        moon.setAttribute("hidden", "");
+      } else {
+        sun.setAttribute("hidden", "");
+        moon.removeAttribute("hidden");
+      }
+    });
+  })();
+</script>

@@ -1,5 +1,5 @@
 ---
-import ThemeToggle from "@components/common/ThemeToggle.svelte";
+import ThemeToggle from "@components/common/ThemeToggle.astro";
 import { Icon } from "astro-icon/components";
 import { SITE_METADATA, SOCIAL_LINKS } from "$lib/config";
 
@@ -42,7 +42,7 @@ const socials = [
       &copy; {currentYear} // Pedro Castro
     </p>
     <nav class="flex items-center gap-6">
-      <ThemeToggle client:visible />
+      <ThemeToggle />
       {
         socials.map(({ name, href, icon }) => (
           <a
