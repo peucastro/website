@@ -1,5 +1,3 @@
-import type { SocialIconName } from "$lib/icons";
-
 export const SITE_METADATA = {
   title: "Pedro Castro",
   description:
@@ -9,11 +7,7 @@ export const SITE_METADATA = {
   siteUrl: "https://peucastro.com",
 } as const;
 
-export const SOCIAL_LINKS: ReadonlyArray<{
-  name: string;
-  href: string;
-  icon: SocialIconName;
-}> = [
+export const SOCIAL_LINKS = [
   {
     name: "LinkedIn",
     href: "https://linkedin.com/in/peucastro",
@@ -24,4 +18,4 @@ export const SOCIAL_LINKS: ReadonlyArray<{
     href: "https://github.com/peucastro",
     icon: "github",
   },
-];
+] as const;

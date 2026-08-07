@@ -2,14 +2,13 @@
 import ThemeToggle from "@components/common/ThemeToggle.svelte";
 import { Icon } from "astro-icon/components";
 import { SITE_METADATA, SOCIAL_LINKS } from "$lib/config";
-import type { SocialIconName } from "$lib/icons";
 
 const currentYear = new Date().getFullYear();
 
 const socialIconName = {
   github: "simple-icons:github",
   linkedin: "simple-icons:linkedin",
-} as const satisfies Record<SocialIconName, string>;
+} as const satisfies Record<(typeof SOCIAL_LINKS)[number]["icon"], string>;
 
 const socials = [
   {

@@ -1,0 +1,50 @@
+---
+import { Icon } from "astro-icon/components";
+import { SITE_METADATA, SOCIAL_LINKS } from "$lib/config";
+
+const socialIconName = {
+  github: "simple-icons:github",
+  linkedin: "simple-icons:linkedin",
+} as const satisfies Record<(typeof SOCIAL_LINKS)[number]["icon"], string>;
+---
+
+<aside class="space-y-10 md:col-span-4">
+  <section class="space-y-3">
+    <h3 class="sidebar-section-title">Direct Contact</h3>
+    <a href={`mailto:${SITE_METADATA.email}`} class="contact-link group">
+      <div class="contact-icon-box">
+        <Icon name="lucide:mail" size={16} />
+      </div>
+      <span
+        class="text-fg-muted group-hover:text-primary font-mono text-sm transition-colors"
+      >
+        {SITE_METADATA.email}
+      </span>
+    </a>
+  </section>
+
+  <section class="space-y-3">
+    <h3 class="sidebar-section-title">Socials</h3>
+    <ul class="space-y-2">
+      {
+        SOCIAL_LINKS.map((social) => (
+          <li>
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link group"
+            >
+              <div class="contact-icon-box">
+                <Icon name={socialIconName[social.icon]} size={16} />
+              </div>
+              <span class="text-fg-muted group-hover:text-primary font-mono text-sm transition-colors">
+                {social.name}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</aside>
