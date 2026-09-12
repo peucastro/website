@@ -24,35 +24,29 @@ const { technologies, liveUrl, repositoryUrl } = entry.data;
 <ContentLayout {...entry.data} label={entry.data.status}>
   <div slot="meta" class="flex items-center justify-between gap-4">
     <div class="flex flex-wrap gap-2">
-      {
-        technologies &&
-          technologies.map((tech: (typeof technologies)[number]) => (
-            <span class="bg-primary/10 text-primary rounded px-2 py-0.5 font-mono text-xs">
-              {tech}
-            </span>
-          ))
-      }
+      {technologies &&
+        technologies.map((tech: (typeof technologies)[number]) => (
+          <span class="bg-primary/10 text-primary rounded px-2 py-0.5 font-mono text-xs">
+            {tech}
+          </span>
+        ))}
     </div>
 
     <div class="text-muted flex gap-1">
-      {
-        repositoryUrl && (
-          <IconLink
-            href={repositoryUrl.toString()}
-            label="Source Code"
-            name="simple-icons:github"
-          />
-        )
-      }
-      {
-        liveUrl && (
-          <IconLink
-            href={liveUrl.toString()}
-            label="Live Demo"
-            name="lucide:external-link"
-          />
-        )
-      }
+      {repositoryUrl && (
+        <IconLink
+          href={repositoryUrl.toString()}
+          label="Source Code"
+          name="simple-icons:github"
+        />
+      )}
+      {liveUrl && (
+        <IconLink
+          href={liveUrl.toString()}
+          label="Live Demo"
+          name="lucide:external-link"
+        />
+      )}
     </div>
   </div>
   <Content />

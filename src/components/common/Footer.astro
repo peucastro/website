@@ -35,27 +35,21 @@ const socials = [
 ---
 
 <footer class="bg-bg-deep mt-32 border-t py-12 font-mono text-xs">
-  <div
-    class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 md:flex-row"
-  >
-    <p class="text-fg-muted">
-      &copy; {currentYear} // Pedro Castro
-    </p>
+  <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
+    <p class="text-fg-muted">&copy; {currentYear} // Pedro Castro</p>
     <nav class="flex items-center gap-6">
       <ThemeToggle />
-      {
-        socials.map(({ name, href, icon }) => (
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-muted hover:text-primary transition-colors"
-            aria-label={name}
-          >
-            <Icon name={icon} class="h-[1.2em] w-[1.2em]" />
-          </a>
-        ))
-      }
+      {socials.map(({ name, href, icon }) => (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted hover:text-primary transition-colors"
+          aria-label={name}
+        >
+          <Icon name={icon} class="h-[1.2em] w-[1.2em]" />
+        </a>
+      ))}
     </nav>
   </div>
 </footer>
