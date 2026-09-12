@@ -14,13 +14,11 @@ const allPosts = await getPosts();
 
   <section>
     <div class="flex flex-col">
-      {
-        allPosts.map((post, index) => (
-          <div class={index !== 0 ? "border-border/40 border-t" : ""}>
-            <PostCard {post} />
-          </div>
-        ))
-      }
+      {allPosts.map((post, index) => (
+        <div class={index !== 0 ? "border-border/40 border-t" : ""}>
+          <PostCard {post} />
+        </div>
+      ))}
     </div>
   </section>
 </BaseLayout>

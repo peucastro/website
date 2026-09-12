@@ -15,9 +15,7 @@ const socialIconName = {
       <div class="contact-icon-box">
         <Icon name="lucide:mail" size={16} />
       </div>
-      <span
-        class="text-fg-muted group-hover:text-primary font-mono text-sm transition-colors"
-      >
+      <span class="text-fg-muted group-hover:text-primary font-mono text-sm transition-colors">
         {SITE_METADATA.email}
       </span>
     </a>
@@ -26,25 +24,23 @@ const socialIconName = {
   <section class="space-y-3">
     <h3 class="sidebar-section-title">Socials</h3>
     <ul class="space-y-2">
-      {
-        SOCIAL_LINKS.map((social) => (
-          <li>
-            <a
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="contact-link group"
-            >
-              <div class="contact-icon-box">
-                <Icon name={socialIconName[social.icon]} size={16} />
-              </div>
-              <span class="text-fg-muted group-hover:text-primary font-mono text-sm transition-colors">
-                {social.name}
-              </span>
-            </a>
-          </li>
-        ))
-      }
+      {SOCIAL_LINKS.map((social) => (
+        <li>
+          <a
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link group"
+          >
+            <div class="contact-icon-box">
+              <Icon name={socialIconName[social.icon]} size={16} />
+            </div>
+            <span class="text-fg-muted group-hover:text-primary font-mono text-sm transition-colors">
+              {social.name}
+            </span>
+          </a>
+        </li>
+      ))}
     </ul>
   </section>
 </aside>

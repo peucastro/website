@@ -26,55 +26,51 @@ const links = [
     </a>
 
     <div class="hidden gap-6 font-mono text-sm md:flex">
-      {
-        links.map(({ name, href }) => {
-          const isActive = currentPath.startsWith(href);
-          return (
-            <a
-              href={href}
-              aria-label={name}
-              class={`group flex transition-colors ${isActive ? "text-primary" : "text-muted"}`}
+      {links.map(({ name, href }) => {
+        const isActive = currentPath.startsWith(href);
+        return (
+          <a
+            href={href}
+            aria-label={name}
+            class={`group flex transition-colors ${isActive ? "text-primary" : "text-muted"}`}
+          >
+            <span class="select-none">[</span>
+            <span
+              class={`px-0.5 ${isActive ? "text-fg" : "text-fg-muted group-hover:text-fg"}`}
             >
-              <span class="select-none">[</span>
-              <span
-                class={`px-0.5 ${isActive ? "text-fg" : "text-fg-muted group-hover:text-fg"}`}
-              >
-                {name}
-              </span>
-              <span class="select-none">]</span>
-            </a>
-          );
-        })
-      }
+              {name}
+            </span>
+            <span class="select-none">]</span>
+          </a>
+        );
+      })}
     </div>
 
     <div class="flex gap-4 font-mono text-sm md:hidden">
-      {
-        links.map(({ name, href, icon }) => {
-          const isActive = currentPath.startsWith(href);
-          return (
-            <a
-              href={href}
-              aria-label={name}
-              class={`flex items-center transition-all ${isActive ? "text-primary" : "text-muted"}`}
-            >
-              {isActive ? (
-                <>
-                  <span class="select-none">[</span>
-                  <div class="flex items-center px-1">
-                    <span class="text-fg">{name}</span>
-                  </div>
-                  <span class="select-none">]</span>
-                </>
-              ) : (
-                <div class="hover:bg-bg-soft flex h-8 w-8 items-center justify-center rounded-sm transition-colors">
-                  <Icon name={icon} class="h-[1.2em] w-[1.2em]" />
+      {links.map(({ name, href, icon }) => {
+        const isActive = currentPath.startsWith(href);
+        return (
+          <a
+            href={href}
+            aria-label={name}
+            class={`flex items-center transition-all ${isActive ? "text-primary" : "text-muted"}`}
+          >
+            {isActive ? (
+              <>
+                <span class="select-none">[</span>
+                <div class="flex items-center px-1">
+                  <span class="text-fg">{name}</span>
                 </div>
-              )}
-            </a>
-          );
-        })
-      }
+                <span class="select-none">]</span>
+              </>
+            ) : (
+              <div class="hover:bg-bg-soft flex h-8 w-8 items-center justify-center rounded-sm transition-colors">
+                <Icon name={icon} class="h-[1.2em] w-[1.2em]" />
+              </div>
+            )}
+          </a>
+        );
+      })}
     </div>
   </nav>
 </header>
