@@ -24,10 +24,10 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.5",
+    "@astrojs/sitemap": "^3.7.6",
     "@fontsource-variable/ibm-plex-sans": "^5.3.0",
     "@fontsource/ibm-plex-mono": "^5.3.0",
-    "astro": "^7.4.12",
+    "astro": "^7.4.13",
     "astro-icon": "^1.2.0",
     "sharp": "^0.35.5"
   },
@@ -35,8 +35,8 @@
     "@astrojs/check": "0.9.12",
     "@astrojs/ts-plugin": "^1.11.0",
     "@eslint/js": "^10.0.1",
-    "@iconify-json/lucide": "^1.2.156",
-    "@iconify-json/simple-icons": "^1.2.103",
+    "@iconify-json/lucide": "^1.2.159",
+    "@iconify-json/simple-icons": "^1.2.104",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.5",
     "astro-eslint-parser": "^3.2.0",
@@ -49,6 +49,6 @@
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.5",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.73.0"
+    "typescript-eslint": "^8.74.0"
   }
 }
